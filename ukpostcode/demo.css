@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font: normal normal normal .8em Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2.1em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+table.bordered {
+	border: 1px solid #000;
+}
+
+table.bordered td, table.bordered th {
+	border: 1px solid #000;
+}
+
+td, th {
+	padding: 5px;
+	vertical-align: top;
+}
+
+th {
+	background: #ff0;
+	text-align: center;
+	font-weight: bold;
+}
+
+td.label {
+	text-align: right;
+	font-weight: bold;
+}
+
+img {
+	border: 1px solid #000;
+}
+
+label {
+	font-weight: bold;
+	text-align: right;
+}
+
+.warning, .error {
+	font-weight: bold;
+	color: #300;
+}
+
+.notice {
+	width: auto;
+	padding: 10px;
+	background: #ee0;
+}
+
+.read {
+	border: none;
+	background-color: #eee;
+	padding: 3px;
+}

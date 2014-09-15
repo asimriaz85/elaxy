@@ -1,0 +1,292 @@
+
+<?php
+
+include("include/header.php");
+
+include("include/login-security");
+	
+?>
+<script src="ksdh348_@iy/js/checkall.js"></script>
+
+<div id="wrapper">
+<div><h1>My Elaxy</h1></div>
+
+<div class="cleasr_both2"></div>
+<?php
+if(isset($_SESSION['reset_msg'])){
+		
+		?>
+                
+                
+                <div id="active_account">
+        
+                    <div id="manage_password_main">
+    <div id="manage_password_div1"><img src="images/green-round-tick.png" /></div>
+    <div id="manage_password_div1"><h2>Success</h2></div>
+   <div class="clear_both"></div>
+</div>
+ <div><?php echo $_SESSION['reset_msg']; ?></div>
+                </div>
+                <?php } 
+				
+				if(isset($_SESSION['login_email_id'])){
+				
+				?>
+                
+                		
+                        
+                        	<div id="manage_bg">
+                            
+                            <div id="tabs">
+  <ul>
+    <li><a href="manage.php" class="sele"><span class="active">Manage my ads</span></a></li>
+    <li><a href="details.php"><span>My Details</span></a></li>
+    <li><a href="#"><span>Replies</span></a></li>
+   
+  </ul>
+  
+</div>
+            <div id="manage_add_div">
+            <!--Menu Details-->
+    <?php include("include/manage_menu.php"); ?>
+    <!--End-->
+
+            
+            
+            <div class="clear_both11"></div>
+            
+                
+                		
+            <form method="post" action="" name="myform">
+            
+             <input type="hidden" name="action" value="multidel">
+            <table width="100%" border="0" cellspacing="2" cellpadding="2">
+            
+  <tr>
+    <td><input type="checkbox" name="checkall" /></td>
+    <td>Picture</td>
+    <td>Title</td>
+    <td>Description</td>
+    <td>Date Published</td>
+    <td>Status</td>
+    <td>Type</td>
+    <td>Last Date</td>
+    <td>Views</td>
+    <td>Replies</td>
+    <td>Option</td>
+  </tr>
+  
+<?php
+	
+
+	$tbl_name="postcode_location";		//your table name
+	// How many adjacent pages should be shown on each side?
+	$adjacents = 3;
+	
+	/* 
+	   First get total number of rows in data table. 
+	   If you have a WHERE clause in your query, make sure you mirror it here.
+	*/
+	 $query = "SELECT COUNT(*) as num FROM $tbl_name WHERE user_id=$user_id";
+	$total_pages = mysql_fetch_array(mysql_query($query));
+	$total_pages = $total_pages[num];
+	
+	/* Setup vars for query. */
+	$targetpage = "manage.php"; 	//your file name  (the name of this file)
+	$limit = 10; 								//how many items to show per page
+	$page = $_GET['page'];
+	if($page) 
+		$start = ($page - 1) * $limit; 			//first item to display on this page
+	else
+		$start = 0;								//if no page var is given, set start to 0
+	
+	/* Get data. */
+	$sql = "SELECT id,user_id,date,status FROM $tbl_name WHERE user_id=$user_id  LIMIT $start, $limit";
+	$result = mysql_query($sql);
+	
+	/* Setup page vars for display. */
+	if ($page == 0) $page = 1;					//if no page var is given, default to 1.
+	$prev = $page - 1;							//previous page is page - 1
+	$next = $page + 1;							//next page is page + 1
+	$lastpage = ceil($total_pages/$limit);		//lastpage is = total pages / items per page, rounded up.
+	$lpm1 = $lastpage - 1;						//last page minus 1
+	
+	/* 
+		Now we apply our rules and draw the pagination object. 
+		We're actually saving the code to a variable in case we want to draw it more than once.
+	*/
+	$pagination = "";
+	if($lastpage > 1)
+	{	
+		$pagination .= "<div class=\"pagination\">";
+		//previous button
+		if ($page > 1) 
+			$pagination.= "<a href=\"$targetpage?page=$prev\">previous</a>";
+		else
+			$pagination.= "<span class=\"disabled\">previous</span>";	
+		
+		//pages	
+		if ($lastpage < 7 + ($adjacents * 2))	//not enough pages to bother breaking it up
+		{	
+			for ($counter = 1; $counter <= $lastpage; $counter++)
+			{
+				if ($counter == $page)
+					$pagination.= "<span class=\"current\">$counter</span>";
+				else
+					$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";					
+			}
+		}
+		elseif($lastpage > 5 + ($adjacents * 2))	//enough pages to hide some
+		{
+			//close to beginning; only hide later pages
+			if($page < 1 + ($adjacents * 2))		
+			{
+				for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++)
+				{
+					if ($counter == $page)
+						$pagination.= "<span class=\"current\">$counter</span>";
+					else
+						$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";					
+				}
+				$pagination.= "...";
+				$pagination.= "<a href=\"$targetpage?page=$lpm1\">$lpm1</a>";
+				$pagination.= "<a href=\"$targetpage?page=$lastpage\">$lastpage</a>";		
+			}
+			//in middle; hide some front and some back
+			elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2))
+			{
+				$pagination.= "<a href=\"$targetpage?page=1\">1</a>";
+				$pagination.= "<a href=\"$targetpage?page=2\">2</a>";
+				$pagination.= "...";
+				for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++)
+				{
+					if ($counter == $page)
+						$pagination.= "<span class=\"current\">$counter</span>";
+					else
+						$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";					
+				}
+				$pagination.= "...";
+				$pagination.= "<a href=\"$targetpage?page=$lpm1\">$lpm1</a>";
+				$pagination.= "<a href=\"$targetpage?page=$lastpage\">$lastpage</a>";		
+			}
+			//close to end; only hide early pages
+			else
+			{
+				$pagination.= "<a href=\"$targetpage?page=1\">1</a>";
+				$pagination.= "<a href=\"$targetpage?page=2\">2</a>";
+				$pagination.= "...";
+				for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++)
+				{
+					if ($counter == $page)
+						$pagination.= "<span class=\"current\">$counter</span>";
+					else
+						$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";					
+				}
+			}
+		}
+		
+		//next button
+		if ($page < $counter - 1) 
+			$pagination.= "<a href=\"$targetpage?page=$next\">next</a>";
+		else
+			$pagination.= "<span class=\"disabled\">next</span>";
+		$pagination.= "</div>\n";		
+	}
+?>
+
+	<?php
+		while($row = mysql_fetch_array($result))
+		{
+			
+			 $add_id=$row['id'];
+  $publish_date=$row['date'];
+  
+  $status=$row['status'];
+	
+		
+		$users_images="SELECT id,postcode_loaction_id,file_name FROM users_images WHERE postcode_loaction_id='".$add_id."'";
+$run_user_image=mysql_query($users_images);
+$fetch_user_image=mysql_fetch_array($run_user_image);
+
+$image_name=$fetch_user_image['file_name'];  
+
+$select_ad_title_description="SELECT id,postcode_loaction_id,title,description FROM ad_title_description WHERE postcode_loaction_id ='".$add_id."' ";
+$run_ad_title=mysql_query($select_ad_title_description);
+$fetch_ad_title=mysql_fetch_array($run_ad_title);
+$title=$fetch_ad_title['title'];
+$description=$fetch_ad_title['description'];
+
+$selct_ad_price="SELECT id,postcode_loaction_id,name,price,days FROM ad_price WHERE postcode_loaction_id='".$add_id."'";
+$num_rows=mysql_num_rows($add_id);
+
+
+
+
+?>
+<tr>
+    <td><input type="checkbox" name="list[]" id="list" value="<?php echo $add_id; ?>" /></td>
+    <td><img src="uploads/<?php echo $image_name; ?>" /></td>
+    <td><?php echo $title; ?></td>
+    <td><?php echo substr($description, 0, 50)."....."; ?></td>
+    <td><?php echo $publish_date; ?></td>
+    <td><?php if($status==1){ echo "Active"; } if($status==0){ echo "Inactive"; } ?></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><a href="update-ads.php?id=<?php echo $add_id; ?>">Update</a>&nbsp;|&nbsp;<a href="delete-ads.php?id=<?php echo $add_id; ?>">Delete</a>&nbsp;|&nbsp;Improve</td>
+  </tr>
+
+<?php
+	
+		}
+	?>
+    
+    <tr>
+    <td>&nbsp;</td>
+    <td colspan="2"><a href="javascript:checkAll(document.myform.list)" style="color:#000000;">Check All</a> <a href="javascript:uncheckAll(document.myform.list)" style="color:#000000;">Uncheck All</a>  <a href="javascript:delcheck(document.myform.list)" style="color:#000000;" >Delete</a>
+         
+                        </td>
+    <td colspan="3" align="center"><?php echo $pagination;?></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    
+    
+
+ 
+</table>
+            
+            </form>
+            
+           
+            
+             <div class="clear_both2"></div>
+            </div>
+                            	
+                                	<div class="clear_both"></div>
+                                    
+                            </div>
+                
+                <?php } 
+				
+				else{
+					$error="Please Login Here";
+	 
+	 session_start();
+			$_SESSION['error']=$error;
+header("location:login.php");
+				}
+				?>
+                
+                
+                </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1079 @@
+<?php session_start();
+include("connection.php");
+ require_once('ads.class.php');
+$current_url = $url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$adsens= new adsens;
+
+$left_ad=$adsens->Display_Ads('Detail','Left');
+$right_ad=$adsens->Display_Ads('Detail','Right');
+$footer_ad=$adsens->Display_Ads('Detail','Bottom');
+$get_id_from_url=mysql_query("SELECT title,description,url,postcode_loaction_id FROM ad_title_description WHERE url='".$_GET['url']."'");
+$get_postid=mysql_fetch_array($get_id_from_url);
+$newpostid=$get_postid['postcode_loaction_id'];
+
+$sql_sb=mysql_query("select main_cat_id from postcode_location where id ='".$newpostid."'");
+$rs_sb=mysql_fetch_array($sql_sb);
+
+$sub_cat_id=$rs_sb['main_cat_id'];
+$catid=$rs_sb['main_cat_id'];
+
+
+
+ ?>
+<?php
+ 
+
+
+$cdate=date('Y-m-d');
+
+
+
+	
+	
+
+
+
+
+
+$select_right_adsen="SELECT id,ad_code,images FROM adsens_ad WHERE ad_page_name='Detail' AND location='Right' AND status='Show'";
+$run_right=mysql_query($select_right_adsen);
+$fetch_right_adsen=mysql_fetch_array($run_right);
+$ad_code_right=$fetch_right_adsen['ad_code'];
+$adsen_right_image=$fetch_right_adsen['images'];
+
+
+
+
+	    $post_id=$_REQUEST['post_id'];
+	    $user_id;
+	  $f_id=$_REQUEST['f_id'];
+	 
+	 
+	  $feature=$_REQUEST['feature']; 
+	  
+	  $select_main_cat="SELECT main_cat_id FROM postcode_location WHERE id='".$newpostid."'";
+	  $run_main_cat=mysql_query($select_main_cat);
+	  $fetch_main_cat=mysql_fetch_array($run_main_cat);
+	  $main_cat_id=$fetch_main_cat['main_cat_id'];
+	  
+	  $select_category="SELECT id,name FROM categories WHERE id='".$main_cat_id."'";
+	  $run_main_category=mysql_query($select_category);
+	  $main_categories=mysql_fetch_array($run_main_category);
+	   $category_name=$main_categories['name'];
+	  
+	
+$total_sub1_add = "SELECT id, COUNT(main_cat_id) FROM postcode_location WHERE main_cat_id='".$main_cat_id."' AND status='1'"; 
+	 
+$result_sub1_ad = mysql_query($total_sub1_add) or die(mysql_error());
+$row_sub1_ad = mysql_fetch_array($result_sub1_ad);
+	  $total_sub1_ad=$row_sub1_ad['COUNT(main_cat_id)'];
+	  
+	  
+	  
+	  $sub2_name= "SELECT id,name,parent_off FROM categories WHERE id='".$sub_cat_id."'"; 
+	 
+$result_name2 = mysql_query($sub2_name) or die(mysql_error());
+$row_name2 = mysql_fetch_array($result_name2);
+	 
+	    $sub2_name=$row_name2['name'];
+	   $c_id=$row_name2['id'];
+	  $parent_off=$row_name2['parent_off'];
+	  
+
+ $total_sub2_add = "SELECT id, COUNT(sub_cat_id) FROM postcode_location WHERE sub_cat_id='".$sub_cat_id."' AND status='1'"; 
+	 
+$result_sub2_ad = mysql_query($total_sub2_add) or die(mysql_error());
+$row_sub2_ad = mysql_fetch_array($result_sub2_ad);
+	   $total_sub2_ad=$row_sub2_ad['COUNT(sub_cat_id)'];
+	  
+	$select_pname="SELECT id,name FROM categories WHERE id='".$parent_off."'";
+	$run_select_pname=mysql_query($select_pname);
+	 
+	$fetch_pname=mysql_fetch_array($run_select_pname);
+	 $pid=$fetch_pname['id'];
+	  $pname=$fetch_pname['name'];   
+	   
+	  
+	  
+	  $select_views="SELECT post_id,user_id FROM views WHERE post_id='".$newpostid."' AND user_id='".$user_id."'";
+	  $run_views=mysql_query($select_views);
+	  $num_views=mysql_num_rows($run_views);
+	  $fetch_views=mysql_fetch_array($run_views);
+	  $view_post_id=$fetch_views['post_id'];
+	  $view_user_id=$fetch_views['user_id'];
+	  
+	  if($num_views==0){
+		  $insert_views="INSERT INTO views(post_id,user_id)VALUES('".$newpostid."','".$user_id."')";
+		  $run_insert_views=mysql_query($insert_views);
+		  
+	  }
+	  
+	  
+	  
+	  
+	 
+	 $select_price="SELECT name,price,days,postcode_loaction_id FROM ad_price WHERE postcode_loaction_id='".$newpostid."'";
+	 $run_price=mysql_query($select_price);
+	 $fetch_price=mysql_fetch_array($run_price);
+	 $price=$fetch_price['price'];
+	 $postcode_loaction_id=$fetch_price['postcode_loaction_id'];
+	 $f_name=$fetch_price['name'];
+	 
+	 
+	 
+	 
+	 
+	 
+	  $select_post="SELECT * FROM postcode_location WHERE id='".$postcode_loaction_id."'";
+	 $run_post=mysql_query($select_post);
+	 $fetch_post=mysql_fetch_array($run_post);
+	 $published_date1=$fetch_post['date'];
+	    $u_id=$fetch_post['user_id'];
+		$map_postcode=$fetch_post['postcode'];
+		$lat=$fetch_post['lat'];
+		$lang=$fetch_post['lang'];
+		
+		$main_cat=$fetch_post['main_cat_id'];
+		$sub_cat_id_id=$fetch_post['sub_cat_id'];
+		$sub_sub_cat=$fetch_post['sub_sub_cat'];
+		$sub_cat_child_child=$fetch_post['sub_cat_child_child'];
+		$sub_cat_child_child_child=$fetch_post['sub_cat_child_child_child'];
+		
+		$select_maincat="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$main_cat."'";
+	$run_maincat=mysql_query($select_maincat);
+	$fetch_maincat=mysql_fetch_array($run_maincat);
+	 $cat_maincat_name=$fetch_maincat['name'];
+	 
+
+	 
+	 
+	 
+	 
+	
+	$select_cat_id1="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_cat_id_id."'";
+	$run_cat_id1=mysql_query($select_cat_id1);
+	$fetch_cat_id1=mysql_fetch_array($run_cat_id1);
+	 $cat_name1=$fetch_cat_id1['name'];
+	
+	$select_cat_id2="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_sub_cat."'";
+	$run_cat_id2=mysql_query($select_cat_id2);
+	$fetch_cat_id2=mysql_fetch_array($run_cat_id2);
+	  $cat_name2=$fetch_cat_id2['name'];
+	$cat_name2_id=$fetch_cat_id2['id'];
+	
+	$select_cat_id3="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_cat_child_child."'";
+	$run_cat_id3=mysql_query($select_cat_id3);
+	$fetch_cat_id3=mysql_fetch_array($run_cat_id3);
+	 $cat_name3=$fetch_cat_id3['name'];
+	$cat_name3_id=$fetch_cat_id3['id'];
+	
+	$select_cat_id4="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_cat_child_child_child."'";
+	$run_cat_id4=mysql_query($select_cat_id4);
+	$fetch_cat_id4=mysql_fetch_array($run_cat_id4);
+	$cat_name4=$fetch_cat_id4['name'];
+	$cat_name4_id=$fetch_cat_id4['id'];
+		
+		
+		
+		$select_post_ad_name="SELECT id,first_name,last_name,phone FROM registration WHERE id='".$u_id."'";
+		$run_select_post_ad_name=mysql_query($select_post_ad_name);
+		$fetch_post_user=mysql_fetch_array($run_select_post_ad_name);
+		$ad_post_name=$fetch_post_user['first_name'];
+		$phone=$fetch_post_user['phone'];
+		
+		$sql_contact_option=mysql_query("select * from contact_via where postcode_loaction_id='".$newpostid."'");
+		$rs_contact_option=mysql_fetch_array($sql_contact_option);
+	 
+	 $town1=$fetch_post['town'];
+	 $price=$fetch_post['item_price'];
+	 $cate_id=$fetch_post['main_cat_id'];
+	 
+	 
+	 $daysago = (strtotime($cdate) - strtotime($published_date1)) / (60 * 60 * 24);
+	 
+	 $select_title="SELECT title,description,url FROM ad_title_description WHERE url='".$_GET['url']."'";
+	 $run_title=mysql_query($select_title);
+	 $fetch_title=mysql_fetch_array($run_title);
+	 $ad_title=$fetch_title['title'];
+	 $ad_description=$fetch_title['description'];
+	
+	 $sqlutube=mysql_query("select * from youtube_link where postcode_loaction_id='".$newpostid."'");
+	 $rsutube=mysql_fetch_array($sqlutube);
+	 $countutube=mysql_num_rows($sqlutube);
+	 
+	 	 $sqlweb=mysql_query("select * from your_web_link where postcode_loaction_id='".$newpostid."'");
+	 $rsweb=mysql_fetch_array($sqlweb);
+	 $countweb=mysql_num_rows($sqlweb);
+	 
+	 
+	 
+	 
+	 do{
+						$sqlme = "select * from categories where id ='".$catid."' ";
+						$rslme = mysql_query($sqlme) or die(mysql_error());
+						$rowsme = mysql_num_rows($rslme);
+						$me = mysql_fetch_array($rslme);
+						$arr[] = $me['id'] .'|'. $me['name'] . '|' . $me['cat_url'];
+						
+						 $catid = $me['parent_off'];
+						}while($catid !=0);
+						
+						 $mainct=$me['id'];
+						 
+						  krsort($arr);
+						  
+					
+	
+	 
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title><?=$ad_title?> - <?php echo ucfirst($cat_maincat_name)."-". ucfirst($cat_name1) ?></title>
+<?php require_once('inc/meta.php'); ?>
+<meta name="description" content="<?=substr($ad_description,0,120)?> - <?php echo ucfirst($cat_maincat_name)."-". ucfirst($cat_name1) ?>"/>
+<meta name="title" content="<?=$ad_title?>"/>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=2.1.5" media="screen">
+
+
+<!--Ajax Form Post-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="/contact-message/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/contact-message/js/jquery.form.js"></script>
+<script type="text/javascript">
+            $('document').ready(function(){
+
+			$('#form').validate({
+                    rules:{
+                        "name":{
+                            required:true,
+                            maxlength:40
+                        },
+
+                        "email":{
+                            required:true,
+                            email:true,
+                            maxlength:100
+                        },
+
+                        "message":{
+                            required:true
+                        }},
+
+                    messages:{
+                        "name":{
+                            required:"This field is required"
+                        },
+
+                        "email":{
+                            required:"This field is required",
+                            email:"Please enter a valid email address"
+                        },
+						
+						"phone":{
+                            required:"This field is required",
+                            
+                        },
+
+                        "message":{
+                            required:"This field is required"
+                        }},
+
+                    submitHandler: function(form){
+                      $(form).ajaxSubmit({
+        target: '#preview', 
+        success: function() { 
+        $('#formbox').slideUp('fast'); 
+        } 
+    }); 
+			
+                    }
+                
+            })
+						
+        });
+        </script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.fancybox').fancybox();
+	});
+	</script>
+<script language="javascript" type="text/javascript">
+<!--
+function popitup(url) {
+	newwindow=window.open(url,'name','height=200,width=400');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+
+// -->
+</script>
+<!--END-->
+<script type="text/javascript">
+<?php
+
+   
+   // $postcode = $map_postcode;
+ 
+   // $search_code = urlencode($postcode);
+   // $url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $search_code . '&sensor=false';
+    //$json = json_decode(file_get_contents($url));
+   // $lat = $json->results[0]->geometry->location->lat;
+   // $lng = $json->results[0]->geometry->location->lng;
+
+    $address_url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' . $lat . ',' . $lang . '&sensor=false';
+    $address_json = json_decode(file_get_contents($address_url));
+    $address_data = $address_json->results[0]->address_components;
+    $street = str_replace('Dr', 'Drive', $address_data[1]->long_name);
+    $town = $address_data[2]->long_name;
+    $county = $address_data[3]->long_name;
+    $array = array('street' => $street, 'town' => $town, 'county' => $county);
+
+?>
+</script>
+<script src= "http://maps.google.com/maps?file=api&amp;v=2&amp;key=" type="text/javascript"> </script>
+<script type="text/javascript">
+/* Error messages for possible errors */
+		var error_address_empty 	= 'Please enter a valid address first.';
+		var error_invalid_address 	= 'This address is invalid. Make sure to enter your street number and city as well?'; 
+		var error_google_error 		= 'There was a problem processing your request, please try again.';
+		var error_no_map_info		= 'Sorry! Map information is not available for this address.';
+		
+		
+		/**********************************************************************************************************************/
+		/* CHANGE THIS TO YOUR ADDRESS - The default address of your store, This address will display on the map on startup */
+		/**********************************************************************************************************************/
+		var default_address = '<?=$street." ".$town." ".$county?>';
+		
+		
+		
+		var current_address = null; /* Current address we are displaying, we save it here for directions */
+		var map				  = null; /* Instance of Google Maps object */
+		var geocoder		  = null; /* Instance of Google Deocoder object */
+		var gdir				  = null; /* Instance of Google Directions object */
+		var map_compatible  = false; /* Whether or not user's browser is compatible to show the map */
+		
+		/* Check if the browser is compatible */
+		if( GBrowserIsCompatible() ) {
+			map_compatible = true;
+		}
+		
+		/* Initialize the map this will be called when the document is loaded from: <body onLoad="initialize_map();"> */
+		function initialize_map() {
+			if( map_compatible ) {
+				map 	  	= new GMap2(document.getElementById('map_canvas'));        
+				geocoder = new GClientGeocoder();
+				show_address(default_address);
+				
+				/* This displays the zoom controls for the map. If you don't want them just delete the line */
+				map.addControl(new GSmallMapControl());
+				
+				/* This displays the map type. If you don't want that feature then just delete this */
+				map.addControl(new GMapTypeControl());
+				
+			}
+		}
+		
+		/* This function will move the map and shows the address passed to it */
+		function show_address(address) {
+			if( map_compatible && geocoder ) {
+				/* Save this address in current_address value to use later if user wants directions */
+				current_address = address;		
+				geocoder.getLatLng(
+				address,
+				function( point ) {
+					if( !point ) {
+						alert(error_no_map_info);
+					} else {
+						map.setCenter(point, 10);
+						var marker = new GMarker(point);
+						map.addOverlay(marker);
+						marker.openInfoWindowHtml(address);
+					}
+				}
+				);
+			}
+			return false;
+		}
+		
+		
+		function get_directions() {
+			if( map_compatible ) {
+				if( document.direction_form.from_address.value == '' ) {
+					alert(error_address_empty);
+					return false;
+				}
+				
+				document.getElementById('directions').innerHTML = '';
+				
+				gdir = new GDirections(map, document.getElementById('directions'));
+				
+				
+				GEvent.addListener(gdir, 'load',  onGDirectionsLoad);
+				GEvent.addListener(gdir, 'error', handleErrors);
+				
+				
+				set_directions(document.direction_form.from_address.value, current_address);			
+			}
+			return false;
+		}
+		
+		
+		function set_directions(fromAddress, toAddress) {
+      	gdir.load("from: " + fromAddress + " to: " + toAddress,
+                	{ "locale": "en" });
+    	}
+		
+		
+		function handleErrors(){
+			if( gdir.getStatus().code == G_GEO_UNKNOWN_ADDRESS )
+				alert(error_invalid_address);
+			else if( gdir.getStatus().code == G_GEO_SERVER_ERROR )
+				alert(error_google_error);
+			else if( gdir.getStatus().code == G_GEO_MISSING_QUERY )
+				alert(error_address_empty);
+			else 
+				alert(error_invalid_address);
+		}
+		
+		
+		function onGDirectionsLoad(){
+			
+			setTimeout('eval(\'window.location = "#directions_table"\;\')', 500);
+		}
+</script>
+</head>
+
+<body onLoad="initialize_map();">
+<?php require_once('inc/header.php'); ?>
+<section class="main-wrapper">
+  <?php require_once('inc/top_ads.php'); ?>
+  <div class="clear"></div>
+  <div>
+    <?php require_once('inc/search_bar.php'); ?>
+    <ol class="breadcrumb">
+    <?php
+     foreach($arr as $key=>$list){
+							 $ex = explode("|",$list);
+							 
+							 echo "<li>".$ex[1]."&nbsp;</li>";
+							 
+							
+							}
+											
+    ?>
+        
+    </ol>
+  </div>
+  <div class="clear"></div>
+  <div class="view-ad">
+ 
+  
+  
+  
+  
+  
+  
+  
+<?php if(isset($_REQUEST['msg'])){?>
+        <div style=" color:#F00; font-weight:bold;"><?php echo $_REQUEST['msg']; ?></div>
+        <?php } ?>
+        <div class="widget2">
+    <h3 class="head-gray" style="margin-bottom:10px;"><?php echo $ad_title; ?> 
+     <?php if($main_cat_id == 3) { ?>
+            <?php } else if ($main_cat_id == 4){ ?>
+            <?php } else if ($main_cat_id == 5){ ?>
+            <?php } else if ($main_cat_id == 8){ ?>
+            <?php } else if(!empty($price)) { ?>
+            
+    <span style="float:right;">Price: <?php echo "&pound; ".$price; ?></span>
+    
+    <?php } ?>
+    </h3>
+  </div>
+
+<div class="clear"></div>
+<div class="ad-icon" style="width:100%;">
+<ul>
+
+
+<li><a href="#"><img src="/img/calendar.png" width="24" height="24" alt="Calendar" /><?php echo "Posted ".$daysago." "."days ago"; ?></a></li>
+<!--<li><a href="#"><img src="/img/user.png" width="24" height="24" alt="Post by"  />Posted by&nbsp;&nbsp;<?php //echo $ad_post_name; ?></a></li>-->
+<li><a href="#" id= "div1" onclick = "replace()"><img src="/img/phone.png" width="24" height="24" alt="phone" />&nbsp;<?php echo substr($phone,0, -4).'&nbsp;XXXX'; ?></a><a href="#" id = "div2" style="display:none; width:50px;"><img src="/img/phone.png" width="24" height="24" alt="phone" />&nbsp;<?php echo $phone; ?></a></li>
+<li><a href="/config/getfavourite.php?post_id=<?php echo $post_id; ?>&f_id=<?php echo $f_id; ?>&feature=<?php echo $feature; ?>&uid=<?php echo $user_id; ?>&sub_cat_id=<?php echo $sub_cat_id; ?>&url=<?=$_GET['url']?>"><img src="/img/folder_yellow_favourite.png" width="24" height="24" alt="star"  />Favourite</a></li>
+<li><a href="#" onclick="return popitup('/report_message.php?post_id=<?php echo $newpostid; ?>&f_id=<?php echo $f_id; ?>&feature=<?php echo $feature; ?>&ad_userid=<?php echo $u_id; ?>&sub_cat_id=<?php echo $sub_cat_id; ?>&reporter_id=<?php echo $user_id; ?>')" id="various3"><img src="/img/report.png" width="24" height="24" alt="report flag"  />Report Ad</a></li>
+</ul>
+
+</div>
+<div class="clear"></div>
+
+
+<div class="leftarea" style="float:left; width:580px;">
+
+<?php 
+ foreach($arr as $key=>$list){
+							 $ex = explode("|",$list);
+							 
+							
+							 
+							
+						
+
+if($ex[1]=="Cars, Vans & Trucks"){
+$select_vehicle_make_model="SELECT * FROM vehicle_make_mode WHERE postcode_loaction_id='".$newpostid."'";
+$run_vehicle_make_model=mysql_query($select_vehicle_make_model);
+$num_rows_vehicle=mysql_num_rows($run_vehicle_make_model);
+$fetch_vehicle_make_model=mysql_fetch_array($run_vehicle_make_model);
+$make_id=$fetch_vehicle_make_model['make_id'];
+$year=$fetch_vehicle_make_model['year'];
+$model=$fetch_vehicle_make_model['model'];
+$fuel_type=$fetch_vehicle_make_model['fuel_type'];
+$body_type=$fetch_vehicle_make_model['body_type'];
+$transmission=$fetch_vehicle_make_model['transmission'];
+$colour=$fetch_vehicle_make_model['colour'];
+$engine_size=$fetch_vehicle_make_model['engine_size'];
+$mileage=$fetch_vehicle_make_model['mileage'];
+$car_price=$fetch_vehicle_make_model['price'];
+$dealer=$fetch_vehicle_make_model['dealer'];
+
+if($dealer=="No"){
+	$seller_type="Private";
+	
+}
+
+if($dealer=="Yes"){
+	$seller_type="Agent";
+	
+}
+
+$select_make_name="SELECT id,name FROM categories WHERE id='".$make_id."'";
+$run_make_name=mysql_query($select_make_name);
+$fetch_make_name=mysql_fetch_array($run_make_name);
+$make_name=$fetch_make_name['name'];
+?>
+<?php if($num_rows_vehicle > 0){ ?>
+<div class="ad-icon">
+
+
+<ul id="vip-attributes">
+        
+            <li>
+                <h5>Make</h5>
+                <p><?=$make_name?></p>
+            </li>
+        
+            <li>
+                <h5>Model</h5>
+                <p><?=$model?></p>
+            </li>
+        
+            <li>
+                <h5>Year</h5>
+                <p><?=$year?></p>
+            </li>
+        
+            <li>
+                <h5>Mileage</h5>
+                <p><?=$mileage?> miles</p>
+            </li>
+        
+          <!--  <li>
+                <h5>Seller type</h5>
+                <p><?php //$seller_type?></p>
+            </li>
+        -->
+            <li>
+                <h5>Body type</h5>
+                <p><?=$body_type?></p>
+            </li>
+        
+            <li>
+                <h5>Fuel type</h5>
+                <p><?=$fuel_type?></p>
+            </li>
+        
+            <li>
+                <h5>Transmission</h5>
+                <p><?=$transmission?></p>
+            </li>
+        
+            <li>
+                <h5>Colour</h3>
+                <p><?=$colour?></p>
+            </li>
+        
+            <li>
+                <h5>Engine size</h5>
+                <p><?=$engine_size?> cc</p>
+            </li>
+               <li>
+                <h5>Are you a Auto Trader?</h5>
+                <p><?php echo $dealer ?></p>
+            </li>
+       
+    </ul>
+</div>
+
+
+
+
+<?php } }  ?>
+
+	
+		
+        <?php 
+if($ex[1]=="Flats & Houses"){
+$select_property_holiday_rent="SELECT * FROM property_holiday_rent WHERE postcode_loaction_id='".$newpostid."'";
+$run_property_holiday_rent=mysql_query($select_property_holiday_rent);
+$num_rows_property=mysql_num_rows($run_property_holiday_rent);
+$fetch_property_holiday_rent=mysql_fetch_array($run_property_holiday_rent);
+$date_available=$fetch_property_holiday_rent['date_available'];
+$rent_price=$fetch_property_holiday_rent['rent_price'];
+$rent_period=$fetch_property_holiday_rent['rent_period'];
+$property_type=$fetch_property_holiday_rent['property_type'];
+$no_rooms=$fetch_property_holiday_rent['no_rooms'];
+$acting_agent=$fetch_property_holiday_rent['acting_agent'];
+
+
+
+
+
+?>
+<?php if($num_rows_property > 0){ ?>
+<div class="ad-icon">
+
+<ul id="vip-attributes">
+   <!--  <li>
+                <h5>Seller type</h5>
+                <p><?php //$seller_type?></p>
+            </li>
+        -->
+<li>
+<h5>Date Available</h5>
+<p><?=$date_available?></p>
+</li>
+<li>
+<h5>Property Type</h5>
+<p><?=$property_type?></p>
+</li>
+
+<li>
+<h5>No of Beds</h5>
+<p><?=$no_rooms?></p>
+</li>
+</ul>
+
+
+</div>
+<?php } } ?>
+
+
+ <?php 
+ 
+ ///Jobs///
+ 
+if($ex[1]=="Jobs"){
+$select_job_contract="SELECT * FROM job_contract WHERE postcode_loaction_id='".$newpostid."'";
+$run_job_contract=mysql_query($select_job_contract);
+$num_rows_job_contract=mysql_num_rows($run_job_contract);
+$fetch_job_contract=mysql_fetch_array($run_job_contract);
+
+$job_contract=$fetch_job_contract['job_contract'];
+$job_salary=$fetch_job_contract['salary'];
+$paytype=$fetch_job_contract['paytype'];
+$empegency=$fetch_job_contract['empagency'];
+
+
+?>
+<?php if($run_job_contract > 0){ ?>
+<div class="ad-icon">
+<ul id="vip-attributes">
+<li>
+<h5>Job Type</h5>
+<p><?=$job_contract?></p>
+</li>
+<li>
+<h5>Salary</h5>
+<p><?=$job_salary?></p>
+</li>
+<li>
+<h5>Pay Type</h5>
+<p><?=$paytype?></p>
+</li>
+<li>
+<h5>Employment Agency</h5>
+<p><?=$empegency?></p>
+</li>
+
+
+</ul>
+
+
+
+
+
+</div>
+<?php } } ?>
+
+<?php 
+if($ex[1]=="Motorbikes, Scooters & Parts" && $sub2_name!="Motorbike Parts & Accessories"){
+$select_vehicle_make_model="SELECT * FROM vehicle_make_mode WHERE postcode_loaction_id='".$newpostid."'";
+$run_vehicle_make_model=mysql_query($select_vehicle_make_model);
+$num_rows_vehicle=mysql_num_rows($run_vehicle_make_model);
+$fetch_vehicle_make_model=mysql_fetch_array($run_vehicle_make_model);
+$make_id=$fetch_vehicle_make_model['make_id'];
+$year=$fetch_vehicle_make_model['year'];
+$model=$fetch_vehicle_make_model['model'];
+$fuel_type=$fetch_vehicle_make_model['fuel_type'];
+$body_type=$fetch_vehicle_make_model['body_type'];
+$transmission=$fetch_vehicle_make_model['transmission'];
+$colour=$fetch_vehicle_make_model['colour'];
+$engine_size=$fetch_vehicle_make_model['engine_size'];
+$mileage=$fetch_vehicle_make_model['mileage'];
+$car_price=$fetch_vehicle_make_model['price'];
+$dealer=$fetch_vehicle_make_model['dealer'];
+
+if($dealer=="No"){
+	$seller_type="Private";
+	
+}
+
+if($dealer=="Yes"){
+	$seller_type="Agent";
+	
+}
+
+$select_make_name="SELECT id,name FROM categories WHERE id='".$make_id."'";
+$run_make_name=mysql_query($select_make_name);
+$fetch_make_name=mysql_fetch_array($run_make_name);
+$make_name=$fetch_make_name['name'];
+?>
+<?php if($num_rows_vehicle > 0){ ?>
+<div class="ad-icon">
+
+<ul id="vip-attributes">
+<li>
+<h5>Make</h5>
+<p><?=$make_name?></p>
+</li>
+<li>
+<h5>Model</h5>
+<p><?=$model?></p>
+</li>
+<li>
+<h5>Year</h5>
+<p><?=$year?></p>
+</li>
+
+<li>
+<h5>Mileage</h5>
+<p><?=$mileage?> miles</p>
+</li>
+
+   <!--  <li>
+                <h5>Seller type</h5>
+                <p><?php //$seller_type?></p>
+            </li>
+        -->
+
+<li>
+<h5>Colour</h5>
+<p><?=$colour?></p>
+</li>
+
+<li>
+<h5>Engine Size</h5>
+<p><?=$engine_size?> cc</p>
+</li>
+
+</ul>
+
+
+
+</div>
+<?php } } } ?>
+
+<div class="clear"></div>
+
+
+<div class="ad-detail"><?php echo $ad_description; ?></div>
+
+<div class="clear"></div>
+
+       <?php
+$ad_image="SELECT file_name FROM users_images WHERE postcode_loaction_id='".$newpostid."'";
+	 $run_ad_image=mysql_query($ad_image);
+	 $fetch_ad_image=mysql_fetch_array($run_ad_image);
+	 $count_top_img=mysql_num_rows($run_ad_image);
+	 $ad_image1=$fetch_ad_image['file_name'];
+	 if($count_top_img > 0){
+?><div class="thumbnail" style="border:none;">
+  <a class="fancybox img-thumbnail"  href="/uploads/<?php echo $ad_image1 ?>" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img class="img-responsive" src="/thumb.php?src=/uploads/<?php echo $ad_image1 ?>&w=550&h=350"></a>
+  </div>
+<?php } else { ?>
+
+<?php }  ?>
+
+<div class="thumbnails">
+
+ <?php 
+  $ad_image2="SELECT file_name FROM users_images WHERE postcode_loaction_id='".$newpostid."'";
+	 $run_ad_image2=mysql_query($ad_image2);
+	  $count_thumb=mysql_num_rows($run_ad_image2);
+	  if($count_thumb > 0){
+ while($fetch_ad_image2=mysql_fetch_array($run_ad_image2)){ 
+ $ad_image2=$fetch_ad_image2['file_name'];
+ ?>
+          <a href="/uploads/<?php echo $ad_image2 ?>" data-fancybox-group="gallery" class="fancybox"> <img src="/uploads/<?php echo $ad_image2 ?>" style="height: 100px; width:100px"> </a>
+          <?php } } else { ?>
+          
+          
+          
+          
+          <?php } ?>
+</div>
+
+</div>
+
+<div class="rightarea"></div>
+<div class="slider">
+
+ <ul class="nav nav-tabs">
+  <li class="active"><a href="#images" data-toggle="tab" style="font-weight:bold;">Images</a></li>
+  <li><a href="#map" data-toggle="tab" style="font-weight:bold;">MAP</a></li>
+ 
+</ul>
+
+
+<div class="tab-content" style="border:1px solid #dddddd; border-top:none;">
+  <div class="tab-pane active" id="images"><div class="thumbs clearfix">
+  
+  <div id="formbox">
+<form class="pure-form pure-form-stacked" action="submit.php?post_id=<?php echo $post_id; ?>&user_id=<?php echo $user_id; ?>&f_name=<?php echo $f_name; ?>" id="form" style="margin-left:10px;">
+    <fieldset>
+        <legend>REPLY TO THIS AD:</legend>
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-med-1-3">
+                <label for="first-name">First Name</label>
+                <input id="first-name" name="name" type="text" <?php if(!empty($session_first_name)){ ?>value="<?php echo $session_first_name;  ?>" readonly <?php } ?>>
+            </div>
+<?php if(!empty($rs_contact_option['via_email'])){ ?>
+            <div class="pure-u-1 pure-u-med-1-3">
+                <label for="last-name">Email</label>
+                <input id="last-name" name="email" type="text" required <?php if(!empty($session_email)){ ?> value="<?php echo $session_email;  ?>" readonly <?php } ?>>
+            </div>
+            <?php } ?>
+<?php if(!empty($rs_contact_option['via_phone'])){ ?>
+            <div class="pure-u-1 pure-u-med-1-3">
+                <label for="email">Telephone (Optional) </label>
+                <input id="email" name="phone" type="text" <?php if(!empty($session_email)){ ?> value="<?php echo $session_phone; ?>" readonly <?php } ?>>
+            </div>
+<?php } ?>
+            <div class="pure-u-1 pure-u-med-1-3">
+                <label for="message">Message</label>
+                <textarea name="message"  style="width: 345px;
+height: 140px; resize:none;"></textarea>
+            </div>
+
+            
+        </div>
+
+       
+
+        <button type="submit" class="pure-button pure-button-primary" name="send message">Send an Email</button>
+    </fieldset>
+</form>
+</div>
+  
+  
+         
+        </div></div>
+  <div class="tab-pane" id="map"><div id="map_canvas" style="width: 425px; float: left; clear: both; height: 200px; border: 2px solid #F0EEEC; position: relative; background-color: #E5E3DF;"></div></div>
+ 
+</div>
+<div class="clear"></div>
+
+<div class="slide_contact">
+<div style="float:left; width:43%">
+<div id="preview"></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="clear"></div>
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+  <script type = "text/javascript">
+function replace() {
+document.getElementById("div1").style.display="none";
+document.getElementById("div2").style.display="";
+}
+
+</script>
+  <div class="clear"></div>
+ 
+  <div class="widget2">
+    <h3 class="head-gray" style="margin-bottom:10px;">Related Ads </h3>
+  </div>
+
+    <?php if(!empty($left_ad['AdCode'])){ echo '  <div class="left_ad" >'.$left_ad['AdCode'].'</div>'; } else if(!empty($left_ad['Image'])){?>
+  <div class="left_ad">  <img src="admin_xel/media/upl_gallery/<?php echo $left_ad['Image']; ?>"></div>
+    <?php } ?>
+
+  <div style="float:right;">
+    <?php if(!empty($right_ad['AdCode'])){ echo $right_ad['AdCode']; } else if(!empty($right_ad['Image'])){?>
+    <img src="admin_xel/media/upl_gallery/<?php echo $right_ad['Image']; ?>">
+    <?php } ?>
+  </div>
+  <?php
+include("inc/related-ads.php");
+?>
+
+<div class="clear"></div>
+
+<div class="relate-post">
+
+<h1>My Elaxy</h1>
+
+<div class="detail-post">
+<h2>Recently viewed ads <span style="float:right;"><img src="/images/clear.png" width="16" height="16"><a href="/clear-history.php?emptycart=1&return_url=<?=$current_url?>">Clear history</a></span></h2>
+
+
+
+<?php
+
+  
+  //prepare array for the session variable
+		
+		$new_product = array(array('name'=>$ad_title,'code'=>$newpostid,'price'=>$price,'image'=>'/uploads/'.$ad_image1,'url'=>$_GET['url']));
+		if(isset($_SESSION["products"])) //if we have the session
+		{
+			$found = false; //set found item to false
+			
+			foreach ($_SESSION["products"] as $cart_itm) //loop through session array
+			{
+				if($cart_itm["code"] == $newpostid){ //the item exist in array
+
+					$product[] = array('name'=>$cart_itm['name'],'code'=>$cart_itm['code'], 'price'=>$cart_itm['price'],'image'=>$cart_itm['image'],'url'=>$cart_itm['url']);
+					$found = true;
+				}else{
+					//item doesn't exist in the list, just retrive old info and prepare array for session var
+					$product[] = array('name'=>$cart_itm['name'],'code'=>$cart_itm['code'], 'price'=>$cart_itm['price'],'image'=>$cart_itm['image'],'url'=>$cart_itm['url']);
+				}
+			}
+			
+			if($found == false) //we didn't find item in array
+			{
+				//add new user item in array
+				$_SESSION["products"] = array_merge($product, $new_product);
+			}else{
+				//found user item in array list, and increased the quantity
+				$_SESSION["products"] = $product;
+			}
+			
+		}else{
+			//create a new session var if does not exist
+			
+			$_SESSION["products"] = $new_product;
+		}
+  
+ 
+ 
+
+  foreach ($_SESSION["products"] as $cart_itm)
+    { ?>
+<div class="relate-pro">
+
+
+
+<div><a href="<?=$cart_itm["url"]?>"><img src="/thumb.php?src=<?=$cart_itm["image"]?>&w=121&h=84" ></a></div>
+
+
+
+<p><a href="<?=$cart_itm["url"]?>"><?=$cart_itm["name"]?></a></p>
+
+<p><strong><?php if(!empty($cart_itm["price"])){ ?>&pound; <?php echo $cart_itm["price"]; } ?></strong><!--<br>London--></p>
+
+
+<div class="clear"></div>
+</div>
+
+<?php } ?>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+</section>
+
+<div class="clear"></div>
+
+
+
+<div style="margin: 0 auto;
+width: 750px;">
+  <?php if(!empty($footer_ad['AdCode'])){ echo $footer_ad['AdCode']; } else if(!empty($footer_ad['Image'])){?>
+  <img src="admin_xel/media/upl_gallery/<?php echo $footer_ad['Image']; ?>">
+  <?php } ?>
+</div>
+<?php require_once('inc/footer.php');
+
+ function get_sub_cat($id=0){
+   
+    $ids = $id;
+    do{
+        $subsql = "select id from `categories` where parent_off IN (" . $ids . ") "; 
+        $subrs = mysql_query($subsql); 
+        $row = mysql_num_rows($subrs);
+        if($row > 0){
+            while($res = mysql_fetch_array($subrs)){
+                $res_ids[] = $res[0];
+                $ids_to_search[] = $res[0];
+            }
+            $ids = implode(',',$ids_to_search);
+            $ids_to_search = '';
+        }
+    }while($row !=0);
+    
+    return !empty($res_ids) ? implode(',',$res_ids) : 0;
+    
+}
+
+
+ ?>
+
+
+
+</body>
+</html>

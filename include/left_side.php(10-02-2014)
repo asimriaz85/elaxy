@@ -1,0 +1,31 @@
+<div id="left_side">
+    <div id="form_main_div">
+    <form method="post" name="" action="" enctype="multipart/form-data">
+   <div id="left_view_div_input"> <input type="text" name="" /> </div>
+  
+   <div id="left_view_div_input"><select name="">
+   <option selected="selected">Select a Category</option>
+   <option>Select a Category</option>
+   
+   </select></div>
+   
+   <div id="left_view_div_input"><select name="">
+   <option selected="selected">Select a Region</option>
+   <option>Select a Region</option>
+   
+   </select></div>
+    
+    <div id="left_view_div_input"><input type="submit" name="search" value="Search"></div>
+    </form>
+   <div class="clear_both"></div>
+   
+   <div id="small_box"></div>
+   
+   <div id="small_box"></div>
+   
+   <div id="small_box"></div>
+    </div>
+    
+    
+    <div class="clear_both"></div>
+    </div>

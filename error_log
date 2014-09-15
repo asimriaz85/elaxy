@@ -1,0 +1,26 @@
+[17-Jul-2014 18:21:25 Europe/Berlin] PHP Warning:  require_once(/inc/pagination.php): failed to open stream: No such file or directory in /home/elaxyco/public_html/view.php on line 10
+[17-Jul-2014 18:21:25 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/inc/pagination.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/elaxyco/public_html/view.php on line 10
+[17-Jul-2014 21:35:20 Europe/Berlin] PHP Warning:  Illegal string offset 'town_name' in /home/elaxyco/public_html/get_town.php on line 8
+[17-Jul-2014 21:35:20 Europe/Berlin] PHP Warning:  Illegal string offset 'town_name' in /home/elaxyco/public_html/get_town.php on line 8
+[17-Jul-2014 21:35:21 Europe/Berlin] PHP Warning:  Illegal string offset 'town_name' in /home/elaxyco/public_html/get_town.php on line 8
+[17-Jul-2014 21:35:21 Europe/Berlin] PHP Warning:  Illegal string offset 'town_name' in /home/elaxyco/public_html/get_town.php on line 8
+[19-Jul-2014 07:22:17 Europe/Berlin] PHP Warning:  include(lib/db.setting.php): failed to open stream: No such file or directory in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:22:17 Europe/Berlin] PHP Warning:  include(): Failed opening 'lib/db.setting.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:22:17 Europe/Berlin] PHP Warning:  mysql_connect(): Host 'vps.elaxy.co.uk' is not allowed to connect to this MySQL server in /home/elaxyco/public_html/lib/db.class.php on line 17
+[19-Jul-2014 07:23:35 Europe/Berlin] PHP Warning:  include(lib/db.setting.php): failed to open stream: No such file or directory in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:23:35 Europe/Berlin] PHP Warning:  include(): Failed opening 'lib/db.setting.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:23:35 Europe/Berlin] PHP Warning:  mysql_connect(): Host 'vps.elaxy.co.uk' is not allowed to connect to this MySQL server in /home/elaxyco/public_html/lib/db.class.php on line 17
+[19-Jul-2014 07:24:33 Europe/Berlin] PHP Warning:  include(/lib/db.setting.php): failed to open stream: No such file or directory in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:24:33 Europe/Berlin] PHP Warning:  include(): Failed opening '/lib/db.setting.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:24:33 Europe/Berlin] PHP Warning:  include(/lib/db.class.php): failed to open stream: No such file or directory in /home/elaxyco/public_html/index.php on line 4
+[19-Jul-2014 07:24:33 Europe/Berlin] PHP Warning:  include(): Failed opening '/lib/db.class.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/elaxyco/public_html/index.php on line 4
+[19-Jul-2014 07:24:33 Europe/Berlin] PHP Warning:  include(/lib/adsens.class.php): failed to open stream: No such file or directory in /home/elaxyco/public_html/index.php on line 5
+[19-Jul-2014 07:24:33 Europe/Berlin] PHP Warning:  include(): Failed opening '/lib/adsens.class.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/elaxyco/public_html/index.php on line 5
+[19-Jul-2014 07:24:33 Europe/Berlin] PHP Fatal error:  Class 'adsens_Class' not found in /home/elaxyco/public_html/index.php on line 7
+[19-Jul-2014 07:25:31 Europe/Berlin] PHP Warning:  include(lib/db.setting.php): failed to open stream: No such file or directory in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:25:31 Europe/Berlin] PHP Warning:  include(): Failed opening 'lib/db.setting.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/elaxyco/public_html/index.php on line 3
+[19-Jul-2014 07:25:31 Europe/Berlin] PHP Warning:  mysql_connect(): Host 'vps.elaxy.co.uk' is not allowed to connect to this MySQL server in /home/elaxyco/public_html/lib/db.class.php on line 17
+[23-Jul-2014 15:24:26 Europe/Berlin] PHP Parse error:  syntax error, unexpected ')' in /home/elaxyco/public_html/view-detail.php on line 213
+[06-Aug-2014 20:23:44 Europe/Berlin] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/elaxyco/public_html/test.php on line 54
+[06-Aug-2014 20:23:44 Europe/Berlin] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/elaxyco/public_html/test.php on line 78
+[11-Aug-2014 09:43:28 Europe/Berlin] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/elaxyco/public_html/elaxy.content.php:3) in /home/elaxyco/public_html/elaxy.content.php on line 4

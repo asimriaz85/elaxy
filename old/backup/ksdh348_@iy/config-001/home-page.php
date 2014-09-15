@@ -1,0 +1,99 @@
+<?php
+ob_start();
+include("../../connection.php");
+require_once '../gd_engine/ThumbLib.inc.php';
+
+if(isset($_REQUEST['submit'])){
+	 $ad_page_name=$_REQUEST['ad_page_name'];
+	$location=$_REQUEST['location'];
+	$hide_show=$_REQUEST['hide_show'];
+ 	$client_image=$_FILES['client_image']['name'];
+	$ad_code=mysql_real_escape_string($_REQUEST['ad_code']); 
+	
+
+if(!empty($ad_page_name)&&!empty($location)&&!empty($hide_show)){
+	
+				 
+	 
+			
+			$insert="INSERT INTO adsens_ad(ad_page_name,location,status,images,ad_code) values('$ad_page_name','$location','$hide_show','$client_image','$ad_code')" or die (mysql_error());
+
+$query=mysql_query($insert) or die (mysql_error());
+
+
+		
+
+////Image//
+$selet="select * from adsens_ad order by id DESC LIMIT 1";
+$mysql=mysql_query($selet);
+while($fetchqry=mysql_fetch_array($mysql)){
+$ad_loc_id=$fetchqry['id'];
+}
+$tmp_name5 = $_FILES["client_image"]["tmp_name"];
+$nm5 = $_FILES["client_image"]["name"];
+if($nm5!="")
+{
+//image type, require JPG or GIF
+$filetype5 = substr($nm5, -3);
+$name5="adsens_1_".$ad_loc_id.".jpg";
+
+		if($filetype3=="jpg" || "JPG" || "JPEG" || "jpeg" || "gif" || "png")
+		{
+					//Move uploaded file to temp folder
+			if (move_uploaded_file($tmp_name5, "../media/upl_gallery/$name5"))
+			{
+			
+				 mysql_query("Update adsens_ad Set images='$name5' where id='$ad_loc_id'")or die(mysql_error());
+				$msg="yes";
+			}else{
+			//if upload fails
+			echo $msg="no";
+			die("Error uploading file");
+			exit();
+		}	
+	$thumb = PhpThumbFactory::create("../media/upl_gallery/".$name5."");
+	if($thumb->resize(45, 40)){
+
+    if(!$thumb->save('../media/logo_gallery/'.$name5)){
+    print "<br>Failed to Create Thumb, The required file might be moved, removed or the image is too small";
+    }
+	}
+	
+	
+	$thumb = PhpThumbFactory::create("../media/upl_gallery/".$name5."");
+	if($thumb->resize(200, 100)){
+
+    if(!$thumb->save('../media/thumb_gallery/'.$name5)){
+    print "<br>Failed to Create Thumb, The required file might be moved, removed or the image is too small";
+    }
+	}	
+		$thumb = PhpThumbFactory::create("../media/upl_gallery/".$name5."");
+	if($thumb->resize(500, 500)){
+
+    if(!$thumb->save('../media/large_gallery/'.$name5)){
+    print "<br>Failed to Create Thumb, The required file might be moved, removed or the image is too small";
+    }
+
+}
+
+}
+}
+
+
+if($insert){
+	$msg="Ad Image Added Successfully";
+		header("location:../home-page.php?msg=$msg");
+}
+			
+			
+		
+}
+
+else{
+	$error="Please Fill All Empty Fields";	
+		header("location:../home-page.php?error=$error&ad_page_name=$ad_page_name&location=$location&hide_show=$hide_show");
+}
+
+}
+
+?>

@@ -1,0 +1,27 @@
+RewriteEngine On
+
+RewriteRule ^ad/([a-zA-Z0-9-/]+)/page/([a-zA-Z0-9-z\-]+)$ view-detail.php?url=$1&page=$2
+
+RewriteRule ^ad/([a-zA-Z0-9-/]+)$ view-detail.php?url=$1 
+RewriteRule ^ad/([a-zA-Z0-9-/]+)/$ view-detail.php?url=$1 
+
+
+RewriteRule ^cat/([a-zA-Z0-9-z\-]+)/page/([a-zA-Z0-9-z\-]+)$ view.php?caturl=$1&page=$2
+
+#by kamran
+
+RewriteRule ^cat/([a-zA-Z0-9-/]+)$ view.php?caturl=$1 
+RewriteRule ^cat/([a-zA-Z0-9-/]+)/$ view.php?caturl=$1 
+
+RewriteRule ^county/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ search_result.php?county=$1&region=$2&searchby=county
+RewriteRule ^county/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/$ search_result.php?county=$1&region=$2&searchby=county
+
+RewriteRule ^town/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ search_result.php?town=$1&county=$2&region=$3&searchby=town
+RewriteRule ^town/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)/$ search_result.php?town=$1&county=$2&region=$3&searchby=town
+
+RewriteRule ^region/([a-zA-Z0-9-/]+)$ search_result.php?region=$1&searchby=region
+RewriteRule ^region/([a-zA-Z0-9-/]+)/$ search_result.php?region=$1&searchby=region
+
+
+#by kamran
+RewriteRule ^([a-zA-Z0-9-/]+).html$ elaxy.content.php?id=$1

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html><head>
+<?php require_once('inc/meta.php'); ?>
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+<?php require_once('inc/header.php'); 
+if(isset($_SESSION['login_email_id']) && isset($_SESSION['login_password'])){
+header("location:404.php?msg=Sorry you are not allowed");
+}
+
+?>
+
+
+<section class="main-wrapper">
+<?php require_once('inc/top_ads.php'); ?>
+
+
+
+<div class="clear"></div>
+
+
+<?php require_once('inc/search_bar.php'); ?>
+
+
+<div class="clear"></div>
+<div id="contant_area_home" style="width:1023px;">
+
+<div id="login_div">
+	<div id="wrappertop"></div>
+			<div id="wrapper2" class="login_bg">
+            <div>
+            
+							<div id="error"><?php if(isset($_SESSION['error'])){ echo $_SESSION['error']; } ?></div>
+						
+            </div>
+					<div id="content">
+                    
+                    <div><img src="images/login-top.png" /></div>
+                    
+                    
+                    
+						
+						<!--<div id="darkbanner" class="banner320">
+							<h2>Login</h2>
+						</div>-->
+                        <div class="sign_in_accoutn">Sign in to your Account</div>
+						<!--<div id="darkbannerwrap">
+						</div>-->
+                        <div class="clear_both"></div>
+						<form name="form1" method="post" action="config/login.php">
+						<fieldset class="form">
+                        	                                                                                       <p>
+								<input type="text" placeholder="Email" required="" id="username" name="login_email" />
+							</p>
+							<p>
+								<input type="password" placeholder="Password" required="" id="password" name="login_password" />
+							</p>
+							<!--<button type="submit" class="positive" name="Login">
+								<img src="images/key.png" alt="Login"/>Login</button>-->
+                                <button type="submit" name="Login" class="green_button">Sign In</button>
+                                
+								<!--<ul id="forgottenpassword">
+								<li class="boldtext">|</li>
+								<li><a href="forgot-password.php">Forgotten it?</a></li>-->
+							</ul>
+                            					
+                                
+                                </fieldset>
+                                
+                                
+                                <div class="signup_forgot_main">
+                                <hr class="signup_hr" />	
+                                <div class="clear_both"></div>
+                                <div class="signup_forgot"><a href="create-account.php">Sign Up</a> or <a href="forgot-password.php">Forgot Password</a> ?</div>
+                                <div class="clear_both2"></div>
+                                </div>
+						
+                        </form>
+						
+					</div>
+				</div>   
+
+
+
+</div>
+
+
+		
+</div>
+
+
+</div>
+
+
+</section>
+<div class="clear"></div>
+
+<?php require_once('inc/footer.php'); ?>
+
+
+</body>
+</html>

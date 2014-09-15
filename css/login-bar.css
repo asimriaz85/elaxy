@@ -1,0 +1,417 @@
+/* =The style for the lab
+-------------------------------------------------------------- */
+
+#content {
+    background-color: #FFFFFF;
+	width:230px;
+    
+   
+}
+
+
+nav#nav-container {
+    /*border-top:solid 1px rgb(220,220,220);
+    border-bottom:solid 1px rgb(220,220,220);
+    margin-bottom:18px;
+    line-height:40px;*/
+}
+
+nav#links {
+    width:724px;
+    float:left;
+}
+
+nav#links ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+#links ul li {
+    margin:0 12px;
+    padding:0;
+    float:left;
+    text-align:center;
+}
+
+#links ul li a {
+    display:block;
+    padding:0 12px;
+}
+
+
+nav#login {
+    /*width:300px;
+    float:left;
+    position:relative;*/
+}
+
+#login p {
+    margin:0;
+    /*padding-left:24px;*/
+	padding-top:5px;
+    cursor:pointer;
+  /*  background-image:url('../img/open.png');*/
+    background-position:left;
+    background-repeat:no-repeat;
+}
+
+#login p.close {
+   /* background-image:url('../img/close.png');*/
+}
+
+#login-form {
+    position:absolute;
+    z-index:999;
+    background-color:#f4f4f4;
+    border:solid 1px rgb(220,220,220);
+    padding:8px;
+    /*width:380px;*/
+	width:230px;
+    box-shadow:1px 1px 4px rgb(220,220,220);
+    top:65px;
+   /* left:0;*/
+    display:none;
+	margin-left:70px;
+}
+
+
+
+#login-form form input[type="text"],
+#login-form form input[type="password"] {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	background: #eae7e7 url(../images/8bcLQqF.png) no-repeat;
+	border: 1px solid #c8c8c8;
+	color: #777;
+	font: 13px Helvetica, Arial, sans-serif;
+	margin: 0 0 10px;
+	padding: 15px 10px 15px 40px;
+	width: 76%;
+}
+#login-form form input[type="text"]:focus,
+#login-form form input[type="password"]:focus {
+	-webkit-box-shadow: 0 0 2px #ed1c24 inset;
+	-moz-box-shadow: 0 0 2px #ed1c24 inset;
+	-ms-box-shadow: 0 0 2px #ed1c24 inset;
+	-o-box-shadow: 0 0 2px #ed1c24 inset;
+	box-shadow: 0 0 2px #ed1c24 inset;
+	background-color: #fff;
+	border: 1px solid #ed1c24;
+	outline: none;
+}
+#username { background-position: 10px 10px !important }
+#password { background-position: 10px -53px !important }
+#login-form form input[type="submit"] {
+	
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(11,156,49,0.8);
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(0,150,0,1), 0px 9px 0px rgba(0,0,0,.7);
+   
+	width: 100px;
+	text-align: center;
+	
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+	border:none;
+	cursor:pointer;
+	margin-left:50px;
+}
+/*#login-form form input[type="submit"]:hover {
+	background: rgb(254,193,81);
+	background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	background: -o-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	background: linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
+}*/
+
+
+#forgot_div{
+width:95%; margin-left:10px;	
+}
+
+#forgot{
+float:left; width:53.3%; font-size:16px; color:#039BDE; text-decoration:underline;	
+}
+
+#forgot a{
+color:#039BDE;	
+}
+
+#register{
+float:left; width:33.3%; font-size:16px;	
+}
+#register a{
+color:#535353;	
+}
+
+#please_login{
+min-height:25px; background-color:#5B9E37; color:#FFF; padding:10px; margin:-8px; font-size:16px; font-weight:bold; font-family: 'Arial Black', Gadget, sans-serif;	
+}
+
+#error{
+	min-height:30px; color:#F00; font-size:16px; margin-bottom:10px;	
+}
+
+
+#manage_password_main{
+width:80%;	
+}
+
+#manage_password_div1{
+float:left; width:8.3%;	
+}
+
+#manage_password_div2{
+float:left; width:33.3%;
+
+}
+
+<!--Manage Tabs-->
+	
+#tabs {
+	float:left;
+	width:100%;
+	background:#E2E2E2;
+	font-size:100%;
+	line-height:normal;
+	}
+
+#tabs ul {
+	margin:0;
+	padding:10px 8px 0 12px;
+	list-style:none;
+	font-size:16px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+
+#tabs li {
+	display:inline;
+	margin:0;
+	padding:0;
+	}
+
+#tabs a {
+	float:left;
+	/*background:url("../images/tableft.gif") no-repeat left top;*/
+	margin:0;
+	padding:0 24px 0 4px;
+	text-decoration:none;
+	
+	}
+
+#tabs a span {
+	float:left;
+	display:block;
+	background:url("../images/tabright.gif") no-repeat right top;
+	padding:5px 15px 4px 6px;
+	color:#FFF;
+	
+	}
+	
+	
+	#tabs a span:hover {
+		text-decoration:underline;
+		
+	}
+	
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs a span {float:none;}
+
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	color:#FFF;
+	}
+
+/*#tabs a:hover {
+	background-position:0% -42px;
+	}*/
+	
+	
+	
+	
+	
+
+/*#tabs a:hover span {
+	background-position:100% -42px;
+	}*/
+	
+	
+	#tabs ul li a span.active{
+	background-position:100% -43px;
+	color:#000;
+	}
+	
+	
+	
+	#tabs ul li a.sele{
+	background-image:url(../images/tableft.gif); background-repeat:no-repeat; background-position:1% -43px; float:left; padding:0px 24px 0px 5px;
+	text-decoration:none;
+	}
+	
+	/*.selected {
+	background-position:100% -42px;
+	} */
+	
+	<!--End-->
+	
+	
+	<!--my details menu-->
+	#pointermenu2{
+margin: 0;
+padding: 0;
+}
+
+#pointermenu2 ul{
+margin: 2px;
+margin-left: 15px; /*menu offset from left edge of window*/
+float: left;
+padding-left: 8px;
+font-size:16px;
+font-family:Arial, Helvetica, sans-serif;
+/*background: #EFEFEF;*/ /*optional left round corner*/
+/*background: #E4E4E4;*/
+width:99%;
+color:#000;
+}
+
+ #pointermenu2 ul{ /*IE6 only rule. Decrease ul left margin and add 1em bottom margin*/
+margin-bottom: 1em;
+margin-left: 0px; /*menu offset from left edge of window in IE*/
+}
+
+#pointermenu2 ul li{
+display: inline;
+}
+
+
+#pointermenu2 ul li a{
+float: left;
+/*color: #00547E;*/
+/*font-weight: bold;*/
+padding: 7px 9px 7px 5px;
+text-decoration: none;
+/*background-color:#535353;*/
+
+
+}
+
+#pointermenu2 ul li a:visited{
+color: #00547E;
+}
+#pointermenu2 ul li a:hover{
+	text-decoration:underline;
+	
+}
+
+ #pointermenu2 ul li a{ /*hover and selected link*/
+/*color: #333333;*/
+/*background: transparent url(../images/pointer.gif) bottom center no-repeat;*/
+/*background-color:#535353;*/
+font-weight:bold;
+text-decoration:none;
+background-size:16px;
+color:#000;
+margin-right:10px;
+
+
+}
+
+
+#pointermenu2 ul li a#rightcorner{
+padding-right: 0;
+padding-left: 2px;
+/*background: url(media/rightround2.gif) bottom right no-repeat;*/ /*optional right round corner*/
+}
+	<!--END-->
+	
+	.signup_forgot_main2{
+background-color:#F7F7F7;	
+}
+.signup_hr2{
+color:#CCC;	
+}
+
+.signup_forgot2{
+/*margin-left:20px;*/ text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:bold;	
+}
+
+.signup_forgot2 a{
+	text-decoration:none;
+	color:#000;
+	
+}
+
+.sign_in_accoutn2{
+margin-top:10px; margin-left:20px; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:bold;	
+}
+
+.green_button {
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(11,156,49,0.8);
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(0,150,0,1), 0px 9px 0px rgba(0,0,0,.7);
+   
+	width: 100px;
+	text-align: center;
+	
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+	border:none;
+	margin-left:70px;
+	margin-bottom:20px;
+}
+
+.green_button:active {
+    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgba(0,150,0,1), 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
+	border:none;
+}

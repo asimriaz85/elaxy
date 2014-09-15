@@ -1,0 +1,34 @@
+
+
+
+
+<?php
+
+	include("connection.php");
+	
+	
+	
+		  $sub_cat_id=$_REQUEST['sub_cat_id'];  
+		 
+		 
+		 ?>
+         <input type="hidden" name="sub_cat_child_child_child" value="<?php echo $sub_cat_id; ?>" />
+         <?php
+		exit;
+		$select_subcat_name="SELECT id,name,parent_off FROM categories WHERE parent_off='".$sub_cat_id."'";
+		$run_subcatquery=mysql_query($select_subcat_name);
+		while($fetch_subcat_query=mysql_fetch_array($run_subcatquery)){
+			
+			$sub_subcat_id=$fetch_subcat_query['id'];
+			
+			$category_subname=$fetch_subcat_query['name'];
+			
+		?>
+       
+                                   <li class="blurred"><a href="#"><?php echo $category_subname; ?></a></li> 
+                               
+        <?php	
+			
+		}
+
+?>

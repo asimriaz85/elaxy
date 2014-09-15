@@ -1,0 +1,100 @@
+<link rel="stylesheet" type="text/css" href="validation/stylesheets/jquery.validate.css" />
+        <script src="validation/lib/jquery/jquery-1.3.2.js" type="text/javascript">
+        </script>
+        <script src="validation/javascripts/jquery.validate.js" type="text/javascript">
+        </script>
+        <script src="validation/javascripts/jquery.validation.functions.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            jQuery(function(){
+                jQuery("#first_name").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Please enter the Required field"
+                });
+				
+				jQuery("#last_name").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Please enter the Required field"
+                });
+                jQuery("#ValidNumber").validate({
+                    expression: "if (!isNaN(VAL) && VAL) return true; else return false;",
+                    message: "Please enter a valid number"
+                });
+                
+                
+                jQuery("#ValidEmail").validate({
+                    expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
+                    message: "Please enter a valid Email ID"
+                });
+				
+				jQuery("#ValidConfirmEmail").validate({
+                    expression: "if ((VAL == jQuery('#ValidEmail').val()) && VAL) return true; else return false;",
+                    message: "Confirm Email field doesn't match the Email field"
+                });
+                jQuery("#ValidPassword").validate({
+                    expression: "if (VAL.length > 5 && VAL) return true; else return false;",
+                    message: "Please enter a valid Password"
+                });
+                jQuery("#ValidConfirmPassword").validate({
+                    expression: "if ((VAL == jQuery('#ValidPassword').val()) && VAL) return true; else return false;",
+                    message: "Confirm password field doesn't match the password field"
+                });
+                
+				
+            });
+            /* ]]> */
+        </script>
+        
+        <!--Email Live Validation-->
+        <script type="text/javascript">
+$(document).ready(function(){
+$("#ValidEmail").keyup(function() {
+var email = $('#ValidEmail').val();
+if(email=="")
+{
+$("#disp").html("");
+}
+else
+{
+$.ajax({
+type: "POST",
+url: "user_check.php",
+data: "email="+ email ,
+success: function(html){
+$("#disp").html(html);
+}
+});
+return false;
+}
+});
+});
+</script>
+        <!--End-->
+
+<div id="header-inner">
+<div id="logo">
+<span id="ctl00_header1_lblLogo">
+<a href="index.php">
+<img title="Elaxy" alt="Elaxy" src="images/logo.png">
+</a>
+</span>
+<span id="ctl00_header1_TopOnLogoSide_lblDetails"></span>
+</div>
+<ul id="nav">
+<span id="ctl00_header1_LoginView1_lblAnonymous">
+<li>
+<a href="#"><img src="images/post-free-ad.png" /></a>
+</li>
+<li>
+<a href="create-account.php"><img src="images/registration.png" /></a>
+</li>
+<li>
+<a class="" href="#"><img src="images/login.png" /></a>
+</li>
+</span>
+</ul>
+</div>
+
+		<div class="clear_both11"></div>
+        <hr class="header-line-hr" />

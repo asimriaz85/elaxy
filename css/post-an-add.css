@@ -1,0 +1,245 @@
+@charset "utf-8";
+/* CSS Document */
+html, body,  applet, object, iframe,h3, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,  tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+
+html, body {
+    font-family: verdana,arial,sans-serif;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    color: #333333;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    min-width: 960px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+
+.button, a.button {
+	 background-color: #EF5113;
+    background-image: linear-gradient(to bottom, #F9972A, #F4731E, #EF5112);
+    border: 1px solid #C84511;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: verdana,arial,sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    outline: 0 none;
+    padding: 0.3rem 1.3rem 0.4rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ie .button, .ie a.button {
+    padding: 0.1rem 1.3rem 0.2rem;
+}
+.ie8 .button, .ie8 a.button {
+    padding-bottom: 0.5rem;
+}
+.button:hover, .button:focus, a.button:hover, a.button:focus {
+    color: #FFFF00;
+    outline: 0 none;
+    text-decoration: none;
+}
+
+#holder {
+    max-width: 1350px;
+    min-width: 960px;
+    padding-top: 7px;
+    width: 80%;
+}
+
+
+#main form > fieldset > h2, #main .category-list > h2, #lightbox-main form > fieldset > h2, #lightbox-main .category-list > h2 {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F2F1F1;
+    border-color: #F2F1F1 #F2F1F1 #CCCCCC;
+    border-image: none;
+    border-style: solid solid dashed;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-width: 0 0 1px;
+    padding: 0.66% 1.5%;
+}
+
+#main .form-grid .l2-plus-grid ul li, #lightbox-main .form-grid .l2-plus-grid ul li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    display: block;
+    margin: 2px;
+}
+
+#main .form-grid .l2-plus-grid ul li a, #lightbox-main .form-grid .l2-plus-grid ul li a {
+    color: #333333;
+    display: block;
+    outline: medium none;
+    padding: 6px 9px;
+    text-decoration: none;
+}
+
+#main form > fieldset > h2 .component-info, #main .category-list > h2 .component-info, #lightbox-main form > fieldset > h2 .component-info, #lightbox-main .category-list > h2 .component-info {
+    font-weight: normal;
+}
+#main .category-list, #main form > fieldset, #lightbox-main .category-list, #lightbox-main form > fieldset {
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    display: block;
+    margin: 18px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+#main .form-component, #lightbox-main .form-component {
+    display: block;
+    overflow: hidden;
+    padding: 8px 0 8px 20px;
+    position: relative;
+    transition: padding 0.3s ease-out 0s;
+}
+
+#main .form-grid, #lightbox-main .form-grid {
+    padding-left: 0;
+}
+
+#main .form-grid .l1-grid ul, #lightbox-main .form-grid .l1-grid ul {
+    display: block;
+    height: 101px;
+    margin: 15px 1.5% 0;
+    overflow: hidden;
+}
+#main .form-grid .l1-grid li, #lightbox-main .form-grid .l1-grid li {
+    display: block;
+    float: left;
+    height: 101px;
+    margin-left: 1.5%;
+    text-align: center;
+    width: 12.96%;
+}
+#main .form-grid .l1-grid li:first-child, #lightbox-main .form-grid .l1-grid li:first-child {
+    margin-left: 0;
+}
+
+#main .form-grid .l1-grid li.selected a, #lightbox-main .form-grid .l1-grid li.selected a {
+    border-color: #333333;
+}
+#main .form-grid .l1-grid li.selected a, #main .form-grid .l1-grid li.blurred:hover a, #main .form-grid .l1-grid li:hover a, #lightbox-main .form-grid .l1-grid li.selected a, #lightbox-main .form-grid .l1-grid li.blurred:hover a, #lightbox-main .form-grid .l1-grid li:hover a {
+    opacity: 1;
+}
+#main .form-grid .l1-grid li.blurred a, #lightbox-main .form-grid .l1-grid li.blurred a {
+    opacity: 0.3;
+}
+#main .form-grid .l1-grid a, #lightbox-main .form-grid .l1-grid a {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    color: #333333;
+    display: table;
+    font-weight: bold;
+    height: 78px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: opacity 0.5s ease-out 0s;
+    width: 100%;
+}
+#main .form-grid .l1-grid a span, #lightbox-main .form-grid .l1-grid a span {
+    display: table-cell;
+    line-height: 1.3rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 32px;
+    vertical-align: middle;
+}
+#main .form-grid .l2-plus-grid, #lightbox-main .form-grid .l2-plus-grid {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    display: block;
+    margin: -1px 1.5% 1.5%;
+    overflow: hidden;
+    padding: 1.5%;
+    z-index: 1;
+}
+#main .form-grid .l2-plus-grid ol, #lightbox-main .form-grid .l2-plus-grid ol {
+    overflow: hidden;
+}
+#main .form-grid .l2-plus-grid ol > li:first-child, #lightbox-main .form-grid .l2-plus-grid ol > li:first-child {
+    margin-left: 0;
+}
+#main .form-grid .l2-plus-grid ol > li, #lightbox-main .form-grid .l2-plus-grid ol > li {
+    display: block;
+    float: left;
+    margin-left: 1.33%;
+    overflow: hidden;
+    width: 24%;
+}
+#main .form-grid .l2-plus-grid .grid-level-holder, #lightbox-main .form-grid .l2-plus-grid .grid-level-holder {
+    background: none repeat scroll 0 0 #F2F1F1;
+    border: 1px solid #CCCCCC;
+}
+
+#main .form-grid .l2-plus-grid ul, #lightbox-main .form-grid .l2-plus-grid ul {
+    display: block;
+    height: 318px;
+    overflow-y: auto;
+}
+
+
+<!--Fade and selected-->
+li.l1-cars-vans-motorbikes {
+	display:inline-block;  
+    
+	border:1px solid transparent;
+}
+
+li.l1-cars-vans-motorbikes:last-child {
+	margin:0px;
+}
+
+li.l1-cars-vans-motorbikes:hover {
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+li.l1-cars-vans-motorbikes.unselected:hover {
+	opacity:0.9;
+	filter:alpha(opacity=80);
+}
+li.l1-cars-vans-motorbikes.unselected {
+	opacity:0.4;
+	filter:alpha(opacity=60);
+}
+<!--End-->
+
+
+
+.h11 {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 2.4rem;
+    font-weight: normal;
+   /* margin-bottom: 18px;
+    padding: 10px 18px 20px 28px;*/
+}
+
+
+
+
+

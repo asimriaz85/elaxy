@@ -1,0 +1,58 @@
+<hr class="hr_line" />
+
+<div id="wrapper">
+    <div id="social_media_main">
+    <div id="facebook"><a href="#"><img src="images/facebook.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/tweeter.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/in.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/gplus.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/s5.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/tweeter2.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/dig.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/gmail.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/mail.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/plus.png" /></a></div>
+    <div id="facebook"><a href="#"><img src="images/zero.png" /></a></div>
+    <div class="clear_both"></div>
+</div>
+    
+    
+    <div id="footer_menu_main">
+    <div id="footer_menu1">
+    <ul>
+    	<li><a href="#">About Elaxy</a></li>
+        <li><a href="#">FAQ &amp; Help</a></li>
+        <li><a href="#">Privacy Policy &amp; Cookies</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+    </ul>
+    
+    </div>
+    <div id="footer_menu2">
+    <ul>
+    	<li><a href="#">About Elaxy</a></li>
+        <li><a href="#">FAQ &amp; Help</a></li>
+        <li><a href="#">Privacy Policy &amp; Cookies</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+    </ul>
+    </div>
+    <div id="footer_menu3">
+    <ul>
+    	<li><a href="#">About Elaxy</a></li>
+        <li><a href="#">FAQ &amp; Help</a></li>
+        <li><a href="#">Privacy Policy &amp; Cookies</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+    </ul></div>
+    <div style="clear:both;"></div>
+</div>
+    </div>
+   
+    <div id="footer_bg">
+    <div id="wrapper">
+    <div id="footer_copy">
+    <div id="footer_copy_text">Copyright &copy; Elaxy 2013. All rights reserved</div>
+    <div id="powered_by"><a href="#" style="margin-left:20px;">Powered by Rana Technologies</a></div>
+    
+    <div style="clear:both;"></div>
+    </div>
+</div>
+    </div>

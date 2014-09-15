@@ -1,0 +1,9 @@
+<div id="tabs">
+  <ul>
+    <li><a href="manage.php" class="sele"><span class="active">Manage my ads</span></a></li>
+    <!--<li><a href="details.php"><span>My Details</span></a></li>-->
+    <li><a href="replies.php"><span>Replies</span></a></li>
+   
+  </ul>
+  
+</div>

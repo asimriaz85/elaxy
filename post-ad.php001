@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<?php require_once('inc/meta.php'); ?>
+ <link rel="stylesheet" href="main.css">
+ <link href="uploadfile.css" rel="stylesheet">
+    <script src="js/1.9.1-jquery.min.js"></script>
+    <script src="jquery.uploadfile.min.js"></script>   
+
+
+</head>
+
+<body>
+<?php require_once('inc/header.php');
+
+include("inc/login-security.php"); 
+
+$main_cat=$_REQUEST['main_cat'];
+	$sub_cat_id=$_REQUEST['sub_cat_id'];
+	 $sub_sub_cat=$_REQUEST['sub_sub_cat'];
+	$sub_cat_child_child=$_REQUEST['sub_cat_child_child'];
+	$sub_cat_child_child_child=$_REQUEST['sub_cat_child_child_child'];
+	
+	
+	$select_cat_id1="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_cat_id."'";
+	$run_cat_id1=mysql_query($select_cat_id1);
+	$fetch_cat_id1=mysql_fetch_array($run_cat_id1);
+	$cat_name1=$fetch_cat_id1['name'];
+	
+	$select_cat_id2="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_sub_cat."'";
+	$run_cat_id2=mysql_query($select_cat_id2);
+	$fetch_cat_id2=mysql_fetch_array($run_cat_id2);
+	$cat_name2=$fetch_cat_id2['name'];
+	
+	$select_cat_id3="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_cat_child_child."'";
+	$run_cat_id3=mysql_query($select_cat_id3);
+	$fetch_cat_id3=mysql_fetch_array($run_cat_id3);
+	$cat_name3=$fetch_cat_id3['name'];
+	
+	$select_cat_id4="SELECT id,name FROM categories WHERE show_hide='Show' AND id='".$sub_cat_child_child_child."'";
+	$run_cat_id4=mysql_query($select_cat_id4);
+	$fetch_cat_id4=mysql_fetch_array($run_cat_id4);
+	$cat_name4=$fetch_cat_id4['name'];
+
+?>
+
+
+<section class="main-wrapper">
+<?php require_once('inc/top_ads.php'); ?>
+
+
+
+<div class="clear"></div>
+
+
+<?php require_once('inc/search_bar.php'); ?>
+
+
+<div class="clear"></div>
+<div class="left_ad"><img src="images/120x600ad.jpg" width="120" height="600" /></div>
+<div id="contant_area">
+<div class="ad-box" style="margin-top:5px; margin-left:5px; color:#000; border:none;">
+<div class="catContainer">
+        <h1>Add Your Post</h1>
+        <div class="catSelect selected">
+             <div class="Right">
+             	<h4>Your Selected Category <a href="post-ad1.php">(back to change or edit)</a></h4>
+             	<div class="catHolder">
+                	<span class="selected"><?php echo $cat_name1; ?></span> <?php if(!empty($cat_name2)){ ?><span><?php echo $cat_name2; ?></span><?php } if(!empty($cat_name3)){ ?> <span><?php echo $cat_name3; ?></span><?php } if(!empty($cat_name4)){ ?><span><?php echo $cat_name4; ?></span><?php } ?>
+                </div>                                            
+             </div>
+             <div class="Right">
+             	<h4>Ad title</h4>
+             	<div class="catHolder">
+                	<label>Title<b>*</b>:</label>
+                	<input type="text">                                  
+                </div>                                            
+             </div>  
+             <div class="Right">
+             	<h4>How much do you want for your item?</h4>
+             	<div class="catHolder">
+                	<label>Price<b>*</b>:</label>
+                	<input type="text">                                  
+                </div>                                            
+             </div>  
+             <div class="Right">
+             	<h4>Description</h4>
+             	<div class="catHolder">
+                	<label>Description<b>*</b>:</label>
+                	<textarea rows="5"></textarea>                                  
+                </div>                                            
+             </div> 
+             <div class="Right">
+             	<h4>Ad Imges</h4>
+             	<div class="">
+                    <div id="mulitplefileuploader">Upload</div>
+                    
+                    <div id="status"></div>
+                    <script>
+                    $(document).ready(function()
+                    {
+                    var settings = {
+                        url: "upload.php",
+                        dragDrop:true,
+                        fileName: "myfile",
+                        allowedTypes:"jpg,png,gif,doc,pdf,zip,txt",	
+                        returnType:"json",
+                         onSuccess:function(files,data,xhr)
+                        {
+                           // alert((data));
+                        },
+                        showDelete:true,
+                        deleteCallback: function(data,pd)
+                        {
+                        for(var i=0;i<data.length;i++)
+                        {
+                            $.post("delete.php",{op:"delete",name:data[i]},
+                            function(resp, textStatus, jqXHR)
+                            {
+                                //Show Message  
+                                $("#status").append("<div>File Deleted</div>");      
+                            });
+                         }      
+                        pd.statusbar.hide(); //You choice to hide/not.
+                    
+                    }
+                    }
+                    var uploadObj = $("#mulitplefileuploader").uploadFile(settings);
+                    
+                    
+                    });
+                    </script>					                                
+                </div>                                            
+             </div> 
+             <div class="Right">
+             	<h4>Add a link to your website?</h4>
+             	<div class="catHolder">
+                	<p>Link to your website for <strong>£7.50</strong> - view example</p>
+                	<label><input type="checkbox"> Link to your website:</label>
+                	<input type="text">                                  
+                </div>                                            
+             </div>    
+             <div class="Right">
+             	<h4>Make your ad stand out! Select an option below to promote your ad</h4>
+             	<div class="catHolder">
+                	<p>Link to your website for <strong>£7.50</strong> - view example</p>
+                	<label class="lable-p"><input type="checkbox"> URGENT</label>
+                	<p>Up to 3 times more views and replies*. Perfect if you need to sell, rent or hire quickly. View example <b>7 days - £9.95</b></p>
+                	<label class="lable-p bg-colgreen"><input type="checkbox"> FEATURED</label>
+                	<p>Up to 7 times more views and replies*. Your ad will appear at the top of the listings for 3, 7 or 14 days. View example
+                    <select name="featured_p" id="model">           
+                         <option value="feature_0.00_14">14 days - £0.00 </option>
+                         <option value="feature_0.000_8">8 days - £0.000 </option>
+                     </select>
+                    </p>
+                    <label class="lable-p bg-colblue"><input type="checkbox"> Spotlight</label>
+                	<p>Your ad will appear on the Gumtree homepage and will be seen by millions of people. View example <b>7 days - £23.50</b></p>                            
+                </div>                                            
+             </div>   
+             <div class="Right">
+             	<h4>How would you like to be contacted?</h4>
+             	<div class="catHolder">
+                	<p>Please select at least one contact option for your ad</p>
+                	<label>Contact Name</label>
+                	<input type="text"><p>&nbsp;</p>                
+                	<label><input type="checkbox"> Via email on</label>
+                	<input type="text"><p>Your email address won't appear on your ad</p>
+                	<label><input type="checkbox"> By phone on</label>
+                	<input type="text">
+                </div>                                            
+             </div>   
+             <div class="Right">
+             	<div class="catHolder" style="background:lightyellow">
+                	<label><b>Total Amount:</b></label>
+                	<span class="m0">$250.05</span>               
+                </div>                                            
+             </div>   
+             <div class="Right">
+             	<div class="catHolder">
+                	<label style="width:50%; line-height:42px;">By clicking 'Post my ad', you agree to Elaxy's terms of use and posting rules</label>
+                	<input id="category-select_submit-category" name="submit-category" class="button pull-right" value="Post My Add" data-parent-component="#post-ad-category-select" type="submit">                 
+                </div>                                            
+             </div>                                                                                             
+               <p>*Average comparison in ad views and replies between ads that are not promoted and "urgent" or "featured" ads respectively, measured on the Elaxy website from March 2012 to March 2013</p>                      
+        </div>
+    </div>
+          
+</div>
+<div class="clear"></div>
+<div class="right_ad" style="left: 782px;"><img src="images/120x600ad.jpg" width="120" height="600" /></div>
+</div>
+</section>
+<div class="clear"></div>
+
+<?php require_once('inc/footer.php'); ?>
+
+
+</body>
+</html>

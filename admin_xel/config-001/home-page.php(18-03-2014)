@@ -1,0 +1,44 @@
+<?php
+ob_start();
+include("../../connection.php");
+
+if(isset($_REQUEST['submit'])){
+	 $ad_page_name=$_REQUEST['ad_page_name'];
+	$location=$_REQUEST['location'];
+	$hide_show=$_REQUEST['hide_show'];
+ 	
+	$ad_code=$_REQUEST['ad_code']; 
+	
+
+if(!empty($ad_page_name)&&!empty($location)&&!empty($hide_show)){
+	
+				 
+	 
+			
+			$insert="INSERT INTO adsens_ad(ad_page_name,location,status,ad_code) values('$ad_page_name','$location','$hide_show','$ad_code')" or die (mysql_error());
+
+$query=mysql_query($insert) or die (mysql_error());
+
+
+		
+
+
+
+
+if($insert){
+	$msg="Ad Image Added Successfully";
+		header("location:../home-page.php?msg=$msg");
+}
+			
+			
+		
+}
+
+else{
+	$error="Please Fill All Empty Fields";	
+		header("location:../home-page.php?error=$error&ad_page_name=$ad_page_name&location=$location&hide_show=$hide_show");
+}
+
+}
+
+?>

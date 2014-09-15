@@ -1,0 +1,128 @@
+
+
+.category_graph_continer .one.column
+{
+    width: 40px;
+}
+.category_graph_continer .two.columns
+{
+    width: 100px;
+}
+.category_graph_continer .three.columns
+{
+    width: 160px;
+}
+.category_graph_continer .four.columns
+{
+    width: 220px;
+}
+.category_graph_continer .five.columns
+{
+    width: 280px;
+}
+.category_graph_continer .six.columns
+{
+    width: 340px;
+}
+.category_graph_continer .seven.columns
+{
+    width: 400px;
+}
+.category_graph_continer .eight.columns
+{
+    width: 460px;
+}
+.category_graph_continer .nine.columns
+{
+    width: 520px;
+}
+.category_graph_continer .ten.columns
+{
+    width: 580px;
+}
+.category_graph_continer .eleven.columns
+{
+    width: 640px;
+}
+.category_graph_continer .twelve.columns
+{
+    width: 700px;
+}
+.category_graph_continer .thirteen.columns
+{
+    width: 760px;
+}
+.category_graph_continer .fourteen.columns
+{
+    width: 820px;
+}
+.category_graph_continer .fifteen.columns
+{
+    width: 880px;
+}
+.category_graph_continer .sixteen.columns
+{
+    width: 940px;
+}
+
+.category_graph_continer .one-third.column
+{
+    width: 300px;
+}
+.category_graph_continer .two-thirds.column
+{
+    width: 620px;
+}
+
+
+
+.clearfix:before, .clearfix:after, .row:before, .row:after
+{
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.row:after, .clearfix:after
+{
+    clear: both;
+}
+.row, .clearfix
+{
+    zoom: 1;
+}
+
+/* You can also use a <br class="clear" /> to clear columns */
+.clear
+{
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+#
+
+.column, .columns
+{
+    float: left;
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.row
+{
+    margin-bottom: 20px;
+}
+
+
+
+.jqbar.horizontal .bar-label
+{
+    text-align: right;
+    width: 100px;
+}

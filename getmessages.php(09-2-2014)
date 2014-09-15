@@ -1,0 +1,75 @@
+<?php
+session_start();
+	include("connection.php");
+	include("include/login-security");
+	
+	 $q=$_REQUEST['q'];
+	 
+	 
+	 $pieces = explode("-", $q);
+ $message_users= $pieces[0]; // piece1
+ $post_id= $pieces[1]; // piece2
+	 
+	 
+	
+	  echo $select_message="SELECT id,post_id,user_id,name,email,message,date_time FROM message WHERE user_id='".$message_users."' AND post_id='".$post_id."'";
+	
+	$run=mysql_query($select_message);
+	
+	$fetch=mysql_fetch_array($run);
+		
+		$message_id=$fetch['id'];
+		$user_id .=$fetch['user_id'];
+		$message= $fetch['message'];
+		$date_time=$fetch['date_time'];
+		?>
+        
+        <div style="width:100%; margin-left:20px; margin-top:20px;">
+    <div style="float:left; width:66.3%;"><?php echo $message; ?></div>
+    <div style="float:left; width:23.3%; margin-left:25px; text-align:right;"><?php echo $date_time; ?></div>
+   
+    <div style="clear:both;"></div>
+</div>
+<?php 
+
+	
+		$select_replies="SELECT id,post_id,user_id,name,email,message,date_time FROM message WHERE parent_id='".$message_id."'";
+		$run_replies=mysql_query($select_replies);
+		while($fetch_replies=mysql_fetch_array($run_replies)){
+			
+			$replies_msg=$fetch_replies['message'];
+			$replies_date_time=$fetch_replies['date_time'];
+
+?>
+
+<div style="width:100%; margin-left:20px; margin-top:20px;">
+    <div style="float:left; width:66.3%;"><?php echo $replies_msg; ?></div>
+    <div style="float:left; width:23.3%; margin-left:25px; text-align:right;"><?php echo $replies_date_time; ?></div>
+   
+    <div style="clear:both;"></div>
+</div>
+
+        <?php
+		
+	}
+
+?>
+<div>
+<form method="post" name="form1" action="getreply.php">
+<div style="width:100%; margin-left:20px; margin-top:20px;">
+    <div style="float:left; width:66.3%;">
+    <input type="hidden" name="message_id" value="<?php echo $message_id; ?>">
+    <!--<input type="hidden" name="user_id" value="<?php //echo $q; ?>">-->
+    <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+    <textarea name="reply" cols="30" rows="10"></textarea>
+    <input type="hidden" name="page_name" value="inbox.php">
+    
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div style="width:100%; margin-left:20px; margin-top:20px;">
+    <div style="float:left; width:66.3%;"><input type="submit" name="submit" value="Reply"></div>
+    <div style="clear:both;"></div>
+</div>
+</form>
+</div>

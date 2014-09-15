@@ -1,0 +1,387 @@
+
+<?php 
+
+include("include/header.php");
+	
+?>  
+        <div id="wrapper">
+    <!--Adds Div-->
+    <div id="green_div">
+                             <div id="green_first"></div>
+                              
+                           <div id="green_other"></div>
+                           
+                            <div id="green_other"></div>
+                            
+                           <div id="green_other"></div>
+                           
+                            <div id="green_other"></div>
+                            
+                           <div id="green_other"></div>
+                           
+                           <div id="green_other"></div>
+                           
+                           <div id="green_other"></div>
+                           
+                           
+                             <div class="placeadd_here"><a href="#">Place your add here..Click here</a></div>
+		</div>
+		<!--End Add divs-->
+        
+</div>
+
+
+			<div id="search_bg">
+    
+    <div id="wrapper">
+    
+    <div id="search_inner_div">
+    <div id="search_input_div"><input type="text" name="name" value="" id="input_size" /></div>
+    <div id="search_cat_div"><div id="select-div">
+<select id"number"="" name="numbers">
+<option>Please select</option>
+<option>One</option>
+<option>Two</option>
+<option>Three</option>
+</select>
+</div></div>
+    <div id="search_reagon_div"><div id="select-div">
+<select id"number"="" name="numbers">
+<option>Please select</option>
+<option>One</option>
+<option>Two</option>
+<option>Three</option>
+</select>
+</div></div>
+<div id="search_image_div"><img src="images/search.png" /></div>
+    <div class="clear_both"></div>
+</div>
+    
+    </div>
+    
+    </div>
+    
+<div id="wrapper">
+    <div id="categories_main">
+    
+    
+    
+   
+    
+    
+    <ul id="categories_ul">
+    
+    <?php 
+	$select="SELECT id,name FROM categories WHERE parent_off='0' AND id='1' AND show_hide='Show'";
+	$run=mysql_query($select);
+	$fetch=mysql_fetch_array($run);
+		
+		$name=$fetch['name'];
+	    $id=$fetch['id'];
+		
+		$select_image="SELECT image FROM categories_image WHERE cat_id='".$id."' ";
+		$run_image=mysql_query($select_image);
+		$fetch_image=mysql_fetch_array($run_image);
+		
+		$image=$fetch_image['image'];
+	
+	?>
+    
+    <li id="categories_li">
+            <div id="success_div">
+            
+            <div id="cat_car"><img src="ksdh348_@iy/media/logo_gallery/<?php echo $image; ?>" /></div>
+             <div id="cat_car_text"><?php echo $name; ?></div>   
+            </div>
+    </li>
+    
+    <?php 
+	$select_sub_categories="SELECT id,name FROM categories WHERE parent_off='".$id."' AND show_hide='Show'";
+	$run_sub_cat=mysql_query($select_sub_categories);
+	while($fetch_sub_cat=mysql_fetch_array($run_sub_cat)){
+		
+		$sub_cat_id=$fetch_sub_cat['id'];
+		$sub_cat_name=$fetch_sub_cat['name'];
+	
+	?>
+<li id="categories_li"><a href="#"><?php echo $sub_cat_name; ?></a></li>
+<?php } ?>
+
+<div class="clear_both"></div>
+
+<div id="dash_div"></div>
+		
+     <div class="clear_both2"></div>   	
+
+    
+    <?php 
+	$select="SELECT id,name FROM categories WHERE parent_off='0' AND id='5' AND show_hide='Show'";
+	$run=mysql_query($select);
+	$fetch=mysql_fetch_array($run);
+		
+		$name=$fetch['name'];
+	    $id=$fetch['id'];
+		
+		$select_image="SELECT image FROM categories_image WHERE cat_id='".$id."' ";
+		$run_image=mysql_query($select_image);
+		$fetch_image=mysql_fetch_array($run_image);
+		
+		$image=$fetch_image['image'];
+	
+	?>
+    
+    <li id="categories_li">
+            <div id="success_div">
+            
+            <div id="cat_car"><img src="ksdh348_@iy/media/logo_gallery/<?php echo $image; ?>" /></div>
+             <div id="cat_car_text"><?php echo $name; ?></div>   
+            </div>
+    </li>
+    <div class="clear_both2"></div>
+    <?php 
+	$select_sub_categories="SELECT id,name FROM categories WHERE parent_off='".$id."' AND show_hide='Show'";
+	$run_sub_cat=mysql_query($select_sub_categories);
+	while($fetch_sub_cat=mysql_fetch_array($run_sub_cat)){
+		
+		$sub_cat_id=$fetch_sub_cat['id'];
+		$sub_cat_name=$fetch_sub_cat['name'];
+	
+	?>
+    
+<li id="categories_li"><a href="#"><?php echo $sub_cat_name; ?></a></li>
+<?php } ?>
+
+</ul>
+
+<ul id="categories_ul">
+    
+    <?php 
+	$select="SELECT id,name FROM categories WHERE parent_off='0' AND id='2' AND show_hide='Show'";
+	$run=mysql_query($select);
+	$fetch=mysql_fetch_array($run);
+		
+		$name=$fetch['name'];
+	    $id=$fetch['id'];
+		
+		$select_image="SELECT image FROM categories_image WHERE cat_id='".$id."' ";
+		$run_image=mysql_query($select_image);
+		$fetch_image=mysql_fetch_array($run_image);
+		
+		$image=$fetch_image['image'];
+	
+	?>
+    
+    <li id="categories_li">
+            <div id="success_div">
+            
+            <div id="cat_car"><img src="ksdh348_@iy/media/logo_gallery/<?php echo $image; ?>" /></div>
+             <div id="cat_car_text"><?php echo $name; ?></div>   
+            </div>
+    </li>
+    <br />
+    
+    <?php 
+	$select_sub_categories="SELECT id,name FROM categories WHERE parent_off='".$id."' AND show_hide='Show'";
+	$run_sub_cat=mysql_query($select_sub_categories);
+	while($fetch_sub_cat=mysql_fetch_array($run_sub_cat)){
+		
+		$sub_cat_id=$fetch_sub_cat['id'];
+		$sub_cat_name=$fetch_sub_cat['name'];
+	
+	?>
+<li id="categories_li"><a href="#"><?php echo $sub_cat_name; ?></a></li>
+<?php } ?>
+
+</ul>
+
+<ul id="categories_ul">
+    
+    <?php 
+	$select="SELECT id,name FROM categories WHERE parent_off='0' AND id='3' AND show_hide='Show'";
+	$run=mysql_query($select);
+	$fetch=mysql_fetch_array($run);
+		
+		$name=$fetch['name'];
+	    $id=$fetch['id'];
+		
+		$select_image="SELECT image FROM categories_image WHERE cat_id='".$id."' ";
+		$run_image=mysql_query($select_image);
+		$fetch_image=mysql_fetch_array($run_image);
+		
+		$image=$fetch_image['image'];
+	
+	?>
+    
+    <li id="categories_li">
+            <div id="success_div">
+            
+            <div id="cat_car"><img src="ksdh348_@iy/media/logo_gallery/<?php echo $image; ?>" /></div>
+             <div id="cat_car_text"><?php echo $name; ?></div>   
+            </div>
+    </li>
+    <br />
+    
+    <?php 
+	$select_sub_categories="SELECT id,name FROM categories WHERE parent_off='".$id."' AND show_hide='Show'";
+	$run_sub_cat=mysql_query($select_sub_categories);
+	while($fetch_sub_cat=mysql_fetch_array($run_sub_cat)){
+		
+		$sub_cat_id=$fetch_sub_cat['id'];
+		$sub_cat_name=$fetch_sub_cat['name'];
+	
+	?>
+<li id="categories_li"><a href="#"><?php echo $sub_cat_name; ?></a></li>
+<?php } ?>
+
+</ul>
+
+<ul id="categories_ul">
+    
+    <?php 
+	$select="SELECT id,name FROM categories WHERE parent_off='0' AND id='4' AND show_hide='Show'";
+	$run=mysql_query($select);
+	$fetch=mysql_fetch_array($run);
+		
+		$name=$fetch['name'];
+	    $id=$fetch['id'];
+		
+		$select_image="SELECT image FROM categories_image WHERE cat_id='".$id."' ";
+		$run_image=mysql_query($select_image);
+		$fetch_image=mysql_fetch_array($run_image);
+		
+		$image=$fetch_image['image'];
+	
+	?>
+    
+    <li id="categories_li">
+            <div id="success_div">
+            
+            <div id="cat_car"><img src="ksdh348_@iy/media/logo_gallery/<?php echo $image; ?>" /></div>
+             <div id="cat_car_text"><?php echo $name; ?></div>   
+            </div>
+    </li>
+    <br />
+    
+    <?php 
+	$select_sub_categories="SELECT id,name FROM categories WHERE parent_off='".$id."' AND show_hide='Show'";
+	$run_sub_cat=mysql_query($select_sub_categories);
+	while($fetch_sub_cat=mysql_fetch_array($run_sub_cat)){
+		
+		$sub_cat_id=$fetch_sub_cat['id'];
+		$sub_cat_name=$fetch_sub_cat['name'];
+	
+	?>
+<li id="categories_li"><a href="#"><?php echo $sub_cat_name; ?></a></li>
+<?php } ?>
+
+	
+
+</ul>
+
+<ul id="category_ul_image">
+    
+    
+<li id="categories_li"><img src="images/add_img.png" /></li>
+
+</ul>
+
+<ul id="categories_ul">
+    
+    <?php 
+	$select="SELECT id,name FROM categories WHERE parent_off='0' AND id='6' AND show_hide='Show'";
+	$run=mysql_query($select);
+	$fetch=mysql_fetch_array($run);
+		
+		$name=$fetch['name'];
+	    $id=$fetch['id'];
+		
+		$select_image="SELECT image FROM categories_image WHERE cat_id='".$id."' ";
+		$run_image=mysql_query($select_image);
+		$fetch_image=mysql_fetch_array($run_image);
+		
+		$image=$fetch_image['image'];
+	
+	?>
+    
+    <li id="categories_li">
+            <div id="success_div">
+            
+            <div id="cat_car"><img src="ksdh348_@iy/media/logo_gallery/<?php echo $image; ?>" /></div>
+             <div id="cat_car_text"><?php echo $name; ?></div>   
+            </div>
+    </li>
+    <br />
+    
+    <?php 
+	$select_sub_categories="SELECT id,name FROM categories WHERE parent_off='".$id."' AND show_hide='Show'";
+	$run_sub_cat=mysql_query($select_sub_categories);
+	while($fetch_sub_cat=mysql_fetch_array($run_sub_cat)){
+		
+		$sub_cat_id=$fetch_sub_cat['id'];
+		$sub_cat_name=$fetch_sub_cat['name'];
+	
+	?>
+<li id="categories_li"><a href="#"><?php echo $sub_cat_name; ?></a></li>
+<?php } ?>
+</ul>
+
+
+<ul id="categories_ul">
+    
+    <?php 
+	$select="SELECT id,name FROM categories WHERE parent_off='0' AND id='7' AND show_hide='Show'";
+	$run=mysql_query($select);
+	$fetch=mysql_fetch_array($run);
+		
+		$name=$fetch['name'];
+	    $id=$fetch['id'];
+		
+		$select_image="SELECT image FROM categories_image WHERE cat_id='".$id."' ";
+		$run_image=mysql_query($select_image);
+		$fetch_image=mysql_fetch_array($run_image);
+		
+		$image=$fetch_image['image'];
+	
+	?>
+    
+    <li id="categories_li">
+            <div id="success_div">
+            
+            <div id="cat_car"><img src="ksdh348_@iy/media/logo_gallery/<?php echo $image; ?>" /></div>
+             <div id="cat_car_text"><?php echo $name; ?></div>   
+            </div>
+    </li>
+    <br />
+    
+    <?php 
+	$select_sub_categories="SELECT id,name FROM categories WHERE parent_off='".$id."' AND show_hide='Show'";
+	$run_sub_cat=mysql_query($select_sub_categories);
+	while($fetch_sub_cat=mysql_fetch_array($run_sub_cat)){
+		
+		$sub_cat_id=$fetch_sub_cat['id'];
+		$sub_cat_name=$fetch_sub_cat['name'];
+	
+	?>
+<li id="categories_li"><a href="#"><?php echo $sub_cat_name; ?></a></li>
+<?php } ?>
+
+	<div class="clear_both"></div>
+
+<div id="dash_div"></div>
+		
+     <div class="clear_both2"></div> 
+
+</ul>
+
+    <div class="clear_both"></div>
+</div>
+
+    </div>
+    
+  
+    <?php 
+	include("include/footer.php");
+	?>
+
+</body>
+</html>

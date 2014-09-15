@@ -1,0 +1,247 @@
+<?php 
+ob_start();
+include('include/header.php');
+require_once 'gd_engine/ThumbLib.inc.php';
+include "gd_engine/gdengin.php";
+ 
+	$id=$_REQUEST['id'];
+	
+	
+	//Update//
+	if(isset($_REQUEST['submit'])){
+			
+			 
+			 $up_show_hide=$_REQUEST['hide_show'];
+			
+
+	 $client_image=$_FILES['client_image']['name'];
+	 
+	 $ad_code=$_REQUEST['ad_code'];
+	 
+	
+	if($client_image){$categories_update="update adsens_ad set status='$up_show_hide',images='$client_image',ad_code='$ad_code'
+where id='$id'" or die (mysql_error());
+
+$query=mysql_query($categories_update) or die (mysql_error());
+
+}
+else{
+	
+	 $update_categories11="UPDATE adsens_ad SET status='$up_show_hide',ad_code='$ad_code' WHERE id='$id'";
+$query_categories11=mysql_query($update_categories11) or die (mysql_error);
+
+$msg="Update Successfully";
+}
+
+
+
+}
+$tmp_name5 = $_FILES["client_image"]["tmp_name"];
+$nm5 = $_FILES["client_image"]["name"];
+if($nm5!="")
+{
+//image type, require JPG or GIF
+$filetype5 = substr($nm5, -3);
+$name5="adsens_1_".$id.".jpg"; 
+
+		if($filetype3=="jpg" || "JPG" || "JPEG" || "jpeg" || "gif" || "png")
+		{
+					//Move uploaded file to temp folder
+			if (move_uploaded_file($tmp_name5, "media/upl_gallery/$name5"))
+			{
+			
+				 mysql_query("Update  adsens_ad Set images='$name5' where id='$id'")or die(mysql_error());
+				$msg="yes";
+			}else{
+			//if upload fails
+			$msg="no";
+			die("Error uploading file");
+			exit();
+		}
+		$thumb = PhpThumbFactory::create("media/upl_gallery/".$name5."");
+	if($thumb->resize(45, 40)){
+
+    if(!$thumb->save('media/logo_gallery/'.$name5)){
+    print "<br>Failed to Create Thumb, The required file might be moved, removed or the image is too small";
+    }
+		$thumb = PhpThumbFactory::create("media/upl_gallery/".$name5."");
+	if($thumb->resize(640, 480)){
+
+    if(!$thumb->save('media/large_gallery/'.$name5)){
+    print "<br>Failed to Create Thumb, The required file might be moved, removed or the image is too small";
+    }
+			
+			
+			$thumb = PhpThumbFactory::create("media/upl_gallery/".$name5."");
+	if($thumb->resize(210, 100)){
+
+    if(!$thumb->save('media/thumb_gallery/'.$name5)){
+    print "<br>Failed to Create Thumb, The required file might be moved, removed or the image is too small";
+    }
+	
+
+}
+		}
+
+
+}
+}
+
+$msg="Update Successfully If Image Not change Please Refresh the page";	
+			
+		}
+	
+	
+	//End//
+	
+	
+	
+		
+			$select="SELECT id,ad_page_name,location,status,images,ad_code FROM adsens_ad WHERE id='".$id."'";
+			$run_query=mysql_query($select);
+			$fetch=mysql_fetch_array($run_query);
+			$ad_page_name=$fetch['ad_page_name'];
+			$show_hide=$fetch['status'];
+			$location=$fetch['location'];
+			$image=$fetch['images'];
+			$ad_code=$fetch['ad_code'];
+			
+			
+			
+			
+			
+?>
+
+
+
+	<!--
+    Dialogue box comment
+    <div id="welcome" title="Welcome to Admintasia">
+		<p><b>Admintasia</b> is a <b>lightweight</b>, fully and easily customisable <b>administration user interface</b>. Please proceed to the actual demo by clicking the button below. Enjoy !</p>
+	</div>-->
+
+	<div id="page-wrapper">
+		<div id="main-wrapper">
+			<div id="main-content">
+				
+				<div class="page-title ui-widget-content ui-corner-all">
+					<h1>Edit Adsens</h1>
+					<div class="other">
+
+						<form action="" method="post" enctype="multipart/form-data" class="forms" name="form" >
+                        <?php if(isset($error)) {?>  <div class="response-msg error ui-corner-all" style="height:20px;"><?php echo $error;?> </div><?php } ?>
+        
+        <?php if(isset($msg)){?><div class="response-msg success ui-corner-all"><?php echo $msg;  ?></div><?php } ?>
+        
+        				<h1>&nbsp;</h1>
+    <h1>Adsens</h1>
+                        
+                       
+                        
+									<div class="divmar">
+                                    
+                                     
+                               <table width="400"  border="0" align="center" cellpadding="2" cellspacing="0">
+    <tr>
+      <td colspan="4" bgcolor="#4180BE"><div align="center"><strong><font color="#FFFFFF">Add New Adsen </font></strong></div></td>
+    </tr>
+    <tr>
+      <td width="31%">&nbsp;</td>
+      <td width="2%">&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="33">Page Name</td>
+      <td>&nbsp;</td>
+      <td colspan="2"><?php echo $ad_page_name; ?></td>
+    </tr>
+    <tr>
+      <td height="33">Location:</td>
+      <td>:</td>
+      <td colspan="2"><?php echo $location; ?></td>
+    </tr>
+    <tr>
+      <td height="47">Active/Notactive</td>
+      <td>:</td>
+      <td colspan="2">
+        <?php
+                                    if(isset($hide_show)){
+                                    ?>
+        <select tabindex="1" class="field select medium" name="hide_show" > 	                                   
+          <option value="<?php echo $hide_show; ?>">
+            <?php echo $hide_show; ?>
+            </option>
+          <option value="Show">
+            Show
+            </option>
+          <option value="Hide">
+            Hide
+            </option>
+          
+          </select>
+        <?php } else{ ?>
+        
+        <select tabindex="1" class="field select medium" name="hide_show" > 
+          
+          <option value="Show">
+            Show
+            </option>
+          <option value="Hide">
+            Hide
+            </option>
+          
+          </select>
+        <?php } ?>
+        </td>
+    </tr>
+    <tr>
+      <td>Adsens Code</td>
+      <td>&nbsp;</td>
+      <td>
+      <textarea name="ad_code"><?php echo $ad_code; ?></textarea>
+      <td>    
+    </tr>
+    <tr>
+      <td>Ad Imge:</td>
+      <td>:</td>
+      <td width="56%"><input type="file" name="client_image" class="" id="inputdis" />    
+      <td width="11%"><img src="media/logo_gallery/<?php echo $image; ?>" />       
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">    
+      </tr>
+      
+    <tr>
+      <td colspan="4"><div class="buttons" style="width:200px;">
+        <button type="submit" value="Submit" class="ui-state-default ui-corner-all" id="saveForm" name="submit">Submit</button>
+        
+        <br /><br />
+        </div></td>
+    </tr>
+  </table>
+                                    
+                          </div>
+                                    
+                                    
+                                    
+
+					  </form>
+						<div class="clearfix"></div>
+					</div>
+					
+
+				</div>
+				
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+<?php include('include/sidebar.php'); ?>
+
+	</div>
+	<div class="clearfix"></div>
+<?php include('include/footer.php'); ?>
+</body>
+</html>

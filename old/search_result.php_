@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<?php require_once('inc/meta.php'); ?>
+
+</head>
+
+<body>
+<?php require_once('inc/header.php'); ?>
+
+
+<section class="main-wrapper">
+<?php require_once('inc/top_ads.php'); ?>
+
+
+
+<div class="clear"></div>
+
+
+<?php require_once('inc/search_bar.php'); ?>
+
+
+<div class="clear"></div>
+
+<section class="left_search">
+
+<form name="search-form" method="post" class="form">
+
+
+<input type="text" id="cat" name="cat">
+<div class="search_cate">
+
+<select>
+			<option>Select A Category</option>
+           
+</select>
+
+</div>
+<div class="search_cate">
+<select name="region" id="region">
+			<option>Select A Region</option>
+           
+</select>
+
+</div>
+<input type="text" id="name" name="name">
+
+
+
+<div class="search_cate">
+
+<select name="catb" id="catb">
+			<option>Select A Category</option>
+           
+</select>
+
+</div>
+<div class="search_cate">
+<select>
+			<option>Select A Region</option>
+           
+</select>
+
+</div>
+
+<input type="submit" class="button position" name="button" id="button" value="Submit" />
+</form>
+
+
+<section class="search-ad">
+<img src="images/200x200ad.jpg" width="200" height="200" alt="" />
+</section>
+
+
+<section class="search-ad">
+<img src="images/200x200ad.jpg" width="200" height="200" alt="" />
+</section>
+
+<section class="search-ad">
+<img src="images/200x200ad.jpg" width="200" height="200" alt="" />
+</section>
+
+
+<section class="search-ad">
+<img src="images/200x200ad.jpg" width="200" height="200" alt="" />
+</section>
+
+
+ </section>
+
+
+
+<div id="contant_area">
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+
+</section>
+
+<section class="listing-box">
+<div class="list-image"><img src="images/list-image.jpg" width="121" height="84" alt="" /></div>
+<div class="list-detail">
+<div class="list-hd">Honda City</div>
+<div class="list-cnt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+<div class="list-loc">New Addington, London</div>
+</div>
+<div class="list-feature">Featured</div>
+<div class="list-star"></div>
+<div class="list-pricing">&pound; 9,995<br /><br />
+
+<span>5 Hours ago</span></div>
+</section>
+<div class="right_ad"><img src="images/120x600ad.jpg" width="120" height="600" alt="" /></div>
+</div>
+
+
+
+
+
+
+
+</section>
+
+<div class="clear"></div>
+
+<?php require_once('inc/footer.php'); ?>
+
+
+</body>
+</html>

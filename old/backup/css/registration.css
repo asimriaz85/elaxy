@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+#creat-account-main{
+width:100%;	
+}
+
+#create-account-registration{
+float:left; 
+width:55.3%; 
+border-right:1px solid #CCCCCC;
+/*padding-top:20px;*/
+padding-top:24px;	
+}
+#create-account-registration2{
+float:left; width:43.4%;	
+}
+#registration_input{
+ background-color: #FFFFFF;
+    border: 1px solid #999999;
+    border-radius: 3px;
+    display: block;
+    float: left;
+    font-family: verdana,arial,sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+    min-height: 1.1rem;
+    z-index: 1;	
+}
+
+#registration_inner_div{
+width:90%;	
+}
+
+#registration_inner_div_left{
+float:left; width:38.3%;	
+}
+
+#registration_inner_div_right{
+float:left; width:33.3%;	
+}
+
+
+#registration_inner_div_left2{
+float:left; width:20.3%;	
+}
+
+#registration_inner_div_right2{
+float:left; width:71.3%;	
+}
+
+#registration_inner_div_right3{
+float:left; width:79.3%;	
+}
+
+#button_div{
+margin-left:20px; margin-top:20px;	
+}
+#button_margin{
+margin-left:115px;	
+}
+
+.hr_registration{
+	 border: none;
+ border-bottom: 2px dashed #CCCCCC;
+ margin-top:25px;
+ margin-right:30px;
+}
+#registation_names{
+
+margin-left:15px;
+font-size:17px;
+font-weight:normal;
+}

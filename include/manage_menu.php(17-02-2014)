@@ -1,0 +1,15 @@
+<div id="pointermenu2">
+<ul>
+<li><a href="manage.php" id="selected">Show All</a></li>
+
+<li><a href="live-ad.php">Live</a></li>
+
+<li><a href="pending-ad.php">Pending Approval</a></li>
+
+<li><a href="cancelled-ad.php">Expired</a></li>
+<li><a href="delete-ads.php">Inactive</a></li>
+<li><a href="favourites.php?uid=<?php echo $user_id; ?>">Favourites</a></li>
+
+</ul>
+
+</div>

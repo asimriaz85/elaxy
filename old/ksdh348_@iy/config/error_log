@@ -1,0 +1,5 @@
+[27-Mar-2014 17:56:52 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'You must have either the GD or iMagick extension loaded to use this library' in /home/elaxyco/public_html/ksdh348_@iy/gd_engine/ThumbLib.inc.php:139
+Stack trace:
+#0 /home/elaxyco/public_html/ksdh348_@iy/config/home-page.php(52): PhpThumbFactory::create('../media/upl_ga...')
+#1 {main}
+  thrown in /home/elaxyco/public_html/ksdh348_@iy/gd_engine/ThumbLib.inc.php on line 139

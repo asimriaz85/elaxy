@@ -1,0 +1,32 @@
+/*
+	author: istockphp.com
+*/
+
+form#mainform input[type="text"] {
+    border: 1px solid #E5E5E5;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+form#mainform input[name="register"] {
+    border: 1px solid #BBBBBB;
+    border-radius: 12px 12px 12px 12px;
+    color: #464646;
+    cursor: pointer;
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 3px 8px;
+}
+form#mainform input[name="register"]:hover {
+    border: 1px solid #666666;
+   
+}
+
+span.validation { 
+	font-style:italic;
+	color:#B41F2B; 
+}
+span.loading {
+    font-style: italic;
+    left: 5px;
+    position: relative;
+}

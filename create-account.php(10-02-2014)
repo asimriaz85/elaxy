@@ -1,0 +1,182 @@
+
+<?php
+include("include/header.php");
+
+if(isset($_SESSION['login_email_id']) && isset($_SESSION['login_password'])){
+header("location:404.php?msg=Your are not allowed");
+}
+
+?>
+        
+    
+<div id="wrapper">
+<form method="post" action="" id="mainform">
+<h1>Create a Elaxy account</h1>
+
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left"><span id="registation_names">First name*:</span></div>
+    <div id="registration_inner_div_right"><input type="text" name="first_name"  /></div>
+    <span class="first_name_val validation"></span>
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2">
+    
+    <div id="manage_adds"><h2>Manage all your ads in one place</h2></div>
+    <div id="manage_adds2">With your Elaxy account, you can manage every ad you post in a single, simple area.</div> 
+    
+    </div>
+    <div class="clear_both11"></div>
+</div>
+    
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left"><span id="registation_names">Last name*:</span></div>
+    <div id="registration_inner_div_right"><input type="text" name="last_name"/></div>
+    <span class="last_name_val validation"></span>
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2">
+    <div id="manage_adds"><h2>Easier & faster to post ads</h2></div>
+    <div id="manage_adds2">You won't have to fill in your contact information or confirm your email address again.</div> 
+    </div>
+    <div class="clear_both11"></div>
+</div>
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left"><span id="registation_names">Telephone Number*:</span></div>
+    <div id="registration_inner_div_right"><input type="text" name="telephone_number"  /></div>
+    <span class="telephone_number_val validation"></span>
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2">
+    
+    <div id="manage_adds"><h2>Track your ad statistics</h2></div>
+    <div id="manage_adds2">You can view stats for your ads: see how many people are viewing your ads and how many reply.</div
+    ></div>
+    <div class="clear_both11"></div>
+</div>
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left"><span id="registation_names">Email address*:</span></div>
+    <div id="registration_inner_div_right"><input type="text" name="email"  /></div>
+    <span class="email_val validation"></span>
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2">
+    <div class="clear_both11"></div>
+</div>
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left"><span id="registation_names">Confirm email address*:</span></div>
+    <div id="registration_inner_div_right"><input type="text" name="confirm_email"  /></div>
+    <span class="confirm_email_val validation"></span>
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2"></div>
+    <div class="clear_both11"></div>
+</div>
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left"><span id="registation_names">Password*:</span></div>
+    <div id="registration_inner_div_right"><input type="password" name="password"  /></div>
+    <span class="password_val validation"></span>
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2"></div>
+    <div class="clear_both11"></div>
+</div>
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left"><span id="registation_names">Confirm Password*:</span></div>
+    <div id="registration_inner_div_right"><input type="password" name="confirm_password"  /></div>
+    <span class="confirm_password_val validation"></span>
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2"></div>
+    <div class="clear_both11"></div>
+</div>
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left2"><span id="registation_names">&nbsp;</span></div>
+    <div id="registration_inner_div_right2"><input type="checkbox" name="newsletter" value="1" />I would like to receive news, offers and promotions from Elaxy<div id="button_div"><input name="register" type="button" value="Register"> <span class="loading"></span></div></div>
+    
+    <div style="clear:both;"></div>
+   
+</div>
+ <hr class="hr_registration"/>
+    </div>
+    
+    <div id="create-account-registration2"></div>
+    <div class="clear_both11"></div>
+</div>
+<div id="creat-account-main">
+    <div id="create-account-registration">
+    
+    			<div id="registration_inner_div">
+    <div id="registration_inner_div_left2"><span id="registation_names">&nbsp;</span></div>
+    <div id="registration_inner_div_right3">By creating a Elaxy account you are agreeing to our website terms of use and privacy policy.</div></div>
+    
+    <div style="clear:both;"></div>
+   
+</div>
+    </div>
+    
+    <div id="create-account-registration2"></div>
+    <div class="clear_both11"></div>
+</div>
+
+</form>
+    </div>
+    	</div>
+    
+    <?php 
+	include("include/footer.php");
+	?>
+
+</body>
+</html>

@@ -1,0 +1,568 @@
+.catContainer, .messageContainer{
+
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+.catContainer h1 {
+    font-size: 24px;
+    color: #333;
+}
+.catSelect2 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    float: left;
+   /* width: 97.6%;*/
+   width: 995px;
+    border-radius: 5px;
+}
+.catSelect2 h2 {
+    margin: 0px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+	float:left;
+	width:100%;
+}
+.catSelect2 h2 span{
+	float:left;
+	margin-top:10px;
+	color:#0176b9;
+}
+.catSelect2 .Left {
+    float: left;
+    width: 200px;
+}
+.catSelect2 .Left ul {
+    list-style: none;
+    padding: 0px;
+}
+.catSelect2 .Left ul li {
+    border: 1px solid #b9b9b9;
+    border-bottom: 2px solid #aaaaaa;
+    background: #f5f5f5;
+    margin-bottom: 5px;
+    float: left;
+    width: 100%;
+    padding: 7px;
+    transition: all 0.5s;
+}
+.catSelect2 .Left ul li:hover,
+.catSelect2 .Left ul li.active {
+    background: #FFF;
+	border: 1px solid #ffffff;
+	border-bottom: 2px solid #ff5555;	
+}
+.catSelect2 .Left ul li a {
+    text-decoration: none;
+    color: #666;
+    display: block;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+}
+.catSelect2 .Left ul li a span {
+    display: block;
+    margin: 16px 0 0 10px;
+}
+.catSelect2 .Left ul li a span,
+.catSelect2 .Left ul li a img {
+    float: left;
+}
+.catSelect2 .Left ul li a img {
+    border-radius: 200px;
+}
+
+.catSelect2 .Right {
+    background: #f5f5f5;
+    width: 74%;
+    float: right;
+    padding: 10px;
+    margin: 13px 0 0 0;
+    border-radius: 5px;
+	height:auto;
+	
+   /* height: 459px;
+    overflow: auto;*/
+	position:relative;
+}
+.catSelect2.selected .Right{
+	height:auto;
+	margin:0px 0 10px 0;
+	width:98%;
+}
+.catSelect2.selected .Right .catHolder{
+	margin:0px;
+}
+.catSelect2 .Right h4 {
+    color: #333;
+    margin: 5px 0;
+}
+.catSelect2 .Right .catHolder {
+    padding: 10px;
+    background: #FFF;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    width: 96.5%;
+    float: left;
+}
+.catSelect2 .Right .catHolder span {
+    padding: 3px 8px;
+    background: #0077b9;
+	background-image: linear-gradient(to bottom, #0077b9, #0086d1, #0077b9);
+    color: #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid #0092e3;
+    float: left;
+    margin: 0 5px 5px 0;
+	transition:all 0.5s;
+}
+.catSelect2 .Right .catHolder span i {
+    font-size: 25px;
+}
+.catSelect2 .Right .catHolder span:hover {
+    background: #0098ec;
+}
+.catSelect2 .Right .catHolder span.selected {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect2 .Right .catHolder span.selected2 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect2 .Right .catHolder span.selected3 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect2 .Right .catHolder span.selected4 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect2 .Right .catHolder span.selected5 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect2 .Right .catHolder span.selected6 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect {
+    border: 1px solid #ccc;
+    padding: 10px;
+    float: left;
+  width: 97.6%;
+  
+    border-radius: 5px;
+}
+.catSelect h2 {
+    margin: 0px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+	float:left;
+	width:100%;
+}
+.catSelect h2 span{
+	float:left;
+	margin-top:10px;
+	color:#0176b9;
+}
+.catSelect .Left {
+    float: left;
+    width: 200px;
+}
+.catSelect .Left ul {
+    list-style: none;
+    padding: 0px;
+}
+.catSelect .Left ul li {
+    border: 1px solid #b9b9b9;
+    border-bottom: 2px solid #aaaaaa;
+    background: #f5f5f5;
+    margin-bottom: 5px;
+    float: left;
+    width: 100%;
+    padding: 7px;
+    transition: all 0.5s;
+}
+.catSelect .Left ul li:hover,
+.catSelect .Left ul li.active {
+    background: #FFF;
+	border: 1px solid #ffffff;
+	border-bottom: 2px solid #ff5555;	
+}
+.catSelect .Left ul li a {
+    text-decoration: none;
+    color: #666;
+    display: block;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+}
+.catSelect .Left ul li a span {
+    display: block;
+    margin: 16px 0 0 10px;
+}
+.catSelect .Left ul li a span,
+.catSelect .Left ul li a img {
+    float: left;
+}
+.catSelect .Left ul li a img {
+    border-radius: 200px;
+}
+
+.catSelect .Right {
+    background: #f5f5f5;
+    width: 74%;
+    float: right;
+    padding: 10px;
+    margin: 13px 0 0 0;
+    border-radius: 5px;
+	
+    height: 459px;
+    overflow: auto;
+	position:relative;
+}
+.catSelect.selected .Right{
+	height:auto;
+	margin:0px 0 10px 0;
+	width:98%;
+}
+.catSelect.selected .Right .catHolder{
+	margin:0px;
+}
+.catSelect .Right h4 {
+    color: #333;
+    margin: 5px 0;
+}
+.catSelect .Right .catHolder {
+    padding: 10px;
+    background: #FFF;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    width: 96.5%;
+    float: left;
+}
+.catSelect .Right .catHolder span {
+    padding: 3px 8px;
+    background: #0077b9;
+	background-image: linear-gradient(to bottom, #0077b9, #0086d1, #0077b9);
+    color: #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid #0092e3;
+    float: left;
+    margin: 0 5px 5px 0;
+	transition:all 0.5s;
+}
+.catSelect .Right .catHolder span i {
+    font-size: 25px;
+}
+.catSelect .Right .catHolder span:hover {
+    background: #0098ec;
+}
+.catSelect .Right .catHolder span.selected {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect .Right .catHolder span.selected2 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect .Right .catHolder span.selected3 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect .Right .catHolder span.selected4 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect .Right .catHolder span.selected5 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+
+.catSelect .Right .catHolder span.selected6 {
+    background: #f1037d url(images/checkmark.png) no-repeat 97%;
+    border: 1px solid #cf1c6d;
+    padding-right: 25px;
+}
+.button{
+    background: #0077b9;
+	background-image: linear-gradient(to bottom, #7ec953, #73c348, #66b43d);
+	color:#FFF;
+	border:1px solid #67a746;
+	cursor:pointer;
+	padding:10px 15px;
+	border-radius: 5px;	
+}
+.button:hover{
+	background: #66b43d;
+}
+.pull-right{float:right;}
+.pull-left{float:left;}
+.m0{margin:0 !important;}
+
+.catHolder label{
+	float:left;
+	width:150px;
+	line-height:20px;
+}
+.catHolder p{
+	line-height:24px;
+}
+.catHolder label input{
+	float:left;
+}
+.catHolder label b{
+	color:#F00;
+	font-size:16px;
+}
+.catHolder input[type=text], .catHolder textarea{
+	border-radius:5px;
+	border:1px solid #ccc;
+	padding:3px;
+	outline:none;
+	width:30%;
+	float:left;
+	margin-right:10px;
+}
+.catHolder input[type=text]:focus, .catHolder textarea:focus{
+	box-shadow:0 0 10px #71ccff;
+}
+.lable-p{
+	background:#f0b709;
+	width:auto !important;
+	padding:3px 7px 3px 5px;
+	border-radius:5px;
+	font-weight:bold;
+	color:#FFF;
+	margin-right:10px;
+	text-transform:uppercase;
+}
+.bg-colgreen{background-color:#66bc37;}
+.bg-colblue{background-color:#0077b9;}
+
+
+.messageContainer .Left{
+	float:left;
+	width:320px;
+	border-right:1px solid #82b2e3;
+}
+.messageContainer .Left .head, .messageContainer .Right .head{
+	width:320px;
+	height:56px;
+	background:#e3edf6;
+	border-bottom:1px solid #82b2e3;
+}
+.messageContainer .Left .head h1, .messageContainer .Right .head h1{
+	margin:0px;
+	color:#333436;
+	font-size:20px;
+	padding:7px 0 0 0;
+	text-indent:10px;
+}
+.messageContainer .Left .head span{
+	color:#2d67b8;
+}
+.messageContainer .Left .head span em{
+	margin:0 10px;
+}
+.messageContainer .Left .head span a{
+	color:#2d67b8;
+	text-decoration:none;
+	margin-right:10px;
+}
+
+.messageContainer .Left .body1{
+	float:left;
+}
+.messageContainer .Left .body1 .search{
+	background:#f5f5f5;
+	padding:7px;
+	border-bottom:1px solid #e9e9e9;
+	width:306px;
+	float:left;
+}
+.messageContainer .Left .body1 .search input[type=text]{
+	border:1px solid #cccccc;
+	box-shadow:inset 1px 1px 3px #f1f1f1;
+	float:left;
+	padding:5px;
+	width:250px;
+	margin:0px;
+}
+.messageContainer .Left .body1 .search input[type=submit]{
+	width:36px;
+	height:28px;
+	background:url(images/searchBtn.gif) no-repeat center top;
+	border:0px;
+	cursor:pointer;
+	float:right;
+}
+
+.inboxMessages{
+	height:368px;
+	float:left;
+	width:100%;
+	overflow:auto;
+}
+.inboxMessages ul{
+	float:left;
+	width:99.8%;
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.inboxMessages ul li{
+	padding-bottom:5px;
+	padding-top:5px;
+	border-bottom:1px solid #cccccc;
+	float:left;
+	width:97%;
+	padding-right:10px;
+	cursor:pointer;
+}
+.inboxMessages ul li:hover{
+	background:#f5f5f5;
+}
+.inboxMessages ul li.active{
+	background:#e3edf6;
+}
+.inboxMessages ul li span.thumb{
+	float:left;
+	margin-right:10px;
+	width:50px;
+	height:50px;
+	overflow:hidden;
+}
+.inboxMessages ul li .details{
+	float:left;
+	padding-top:6px;
+	width:79%;
+}
+.inboxMessages ul li .details span em{
+	width:10px;
+	height:10px;
+	background:#ccc;
+	float:left;
+	margin:3px 8px 0 0; 
+	border-radius:100px;
+}
+.inboxMessages ul li .details span em.online{
+	background:#73c348;
+}
+.inboxMessages ul li .details span a{
+	font-weight:bold;
+	color:#333;
+	text-decoration:none;
+	float:left;
+}
+.inboxMessages ul li .details span small{
+	float:right;
+	color:#a7a7a7;
+}
+.inboxMessages ul li .details .categ{
+	color:#000;
+	float:left;
+	width:100%;
+	padding-top:5px;
+}
+.inboxMessages ul li .details .categ img{
+	padding-right:5px;
+}
+
+.messageContainer .Right{
+	float:left;
+	width:598px;
+}
+.messageContainer .Right .head{
+	width:100%;
+}
+.messageContainer .Right .body{
+	width:96.7%;
+	float:left;
+	padding:10px;
+	height:284px;
+	overflow-y:scroll
+}
+
+.myMessage{
+	text-align:left;
+}
+.myMessage a, .replyMessage a{
+	font-weight:bold;
+	font-size:14px;
+	text-decoration:none;
+	color:#0077b9;
+	display:block;
+}
+.myMessage a small, .replyMessage a small{
+	float:right;
+	font-weight:normal;
+	color:#ccc;
+}
+.myMessage p, .replyMessage p{
+	margin:5px 0 20px 0;
+	padding:10px;
+	background:#dbe8f4;
+	border-radius:5px;
+}
+
+.replyMessage{
+	text-align:right;
+}
+.replyMessage a{
+	color:#333;
+}
+.replyMessage a small{
+	float:left;
+}
+.replyMessage p{
+	background:#f1f1f1;
+}
+
+
+.replyBox{
+	background:#f9f9f9;
+	padding:10px;
+	float:left;
+	width:96.6%
+}
+.replyBox textarea{
+	width:99%;
+	resize:vertical;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
